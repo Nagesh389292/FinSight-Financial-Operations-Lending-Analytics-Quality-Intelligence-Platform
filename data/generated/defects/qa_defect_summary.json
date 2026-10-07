@@ -1,0 +1,37 @@
+{
+  "execution_timestamp": "2026-10-06T00:00:00+00:00",
+  "random_seed": 20261006,
+  "baseline_scenario_id": "BASELINE",
+  "baseline_checks_total": 29742,
+  "baseline_checks_passed": 29742,
+  "baseline_checks_failed": 0,
+  "baseline_pass_rate_pct": 100.0,
+  "defect_scenario_id": "DEFECT_INJECTION_001",
+  "eligible_test_scenarios": 29741,
+  "defects_injected_total": 600,
+  "defect_injection_rate_pct": 2.02,
+  "injected_breakdown": {
+    "DAY_COUNT_MISMATCH": 150,
+    "LEAP_YEAR_BLINDNESS": 150,
+    "ROUNDING_TRUNCATION": 150,
+    "WATERFALL_ORDERING": 150
+  },
+  "defects_detected_total": 600,
+  "detection_rate_pct": 100.0,
+  "defects_extracted_total": 600,
+  "severity_distribution": {
+    "MAJOR": 300,
+    "MINOR": 150,
+    "CRITICAL": 150
+  },
+  "priority_distribution": {
+    "P2": 300,
+    "P3": 150,
+    "P1": 150
+  },
+  "rtm_requirement_mapping": {
+    "BRD-FIN-001": 450,
+    "BRD-CORE-006": 150
+  },
+  "status": "PASSED"
+}

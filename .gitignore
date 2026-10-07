@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+.venv/
+venv/
+ENV/
+env/
+.pytest_cache/
+
+# Power BI Runtime Cache
+powerbi/**/.pbi/
+*.abf
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Databases & local sqlite
+*.sqlite3
+
+# dbt
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/

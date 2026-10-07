@@ -1,0 +1,6 @@
+product_key,product_id,product_name,product_type,rate_type,day_count_convention,benchmark_index
+1,PROD-COMM-REV,Commercial Revolving Credit Facility,COMMERCIAL_REVOLVER,FLOATING,ACTUAL/360,SOFR
+2,PROD-COMM-TERM,Corporate Term Loan Facility,COMMERCIAL_TERM,FIXED,ACTUAL/360,FIXED
+3,PROD-SME-WC,SME Working Capital Line,SME_WORKING_CAPITAL,FLOATING,ACTUAL/360,DPRIME
+4,PROD-RET-INST,Consumer Fixed Installment Loan,CONSUMER_INSTALLMENT,FIXED,ACTUAL/365,FIXED
+5,PROD-MORT-30,30-Year Residential Mortgage,RESIDENTIAL_MORTGAGE,FIXED,30/360,FIXED

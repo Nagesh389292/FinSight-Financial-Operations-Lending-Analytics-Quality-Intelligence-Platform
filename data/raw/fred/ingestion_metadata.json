@@ -1,0 +1,61 @@
+{
+  "run_id": "RUN-FRED-ACECD368",
+  "pipeline_name": "fred_macro_ingestion",
+  "start_time": "2026-10-06T18:00:37.306771+00:00",
+  "series_processed": {
+    "SOFR": {
+      "rows": 2220,
+      "min_date": "2018-04-03",
+      "max_date": "2026-10-05",
+      "latest_value": 3.89,
+      "sha256_hash": "54cbb01123ec1cdd7ef2942f0c826fa50c4dcd1a2ef7374776d7ea8d9cae4351",
+      "status": "SUCCESS"
+    },
+    "FEDFUNDS": {
+      "rows": 105,
+      "min_date": "2018-01-01",
+      "max_date": "2026-09-01",
+      "latest_value": 3.75,
+      "sha256_hash": "6d473b5e23d33ce8b755b049c20befce006d9fbc16fe6f053053d9cf41deac65",
+      "status": "SUCCESS"
+    },
+    "DGS10": {
+      "rows": 2285,
+      "min_date": "2018-01-01",
+      "max_date": "2026-10-02",
+      "latest_value": 5.28,
+      "sha256_hash": "af0d6508456e2ff88229752ff8964bdea0f7bd08093367357f2c73d383d66311",
+      "status": "SUCCESS"
+    },
+    "CPIAUCNS": {
+      "rows": 104,
+      "min_date": "2018-01-01",
+      "max_date": "2026-08-01",
+      "latest_value": 334.98,
+      "sha256_hash": "08caaa921ba1758405e40454a0e654c904c4454da3118490e9c45ec1d41a65e0",
+      "status": "SUCCESS"
+    },
+    "UNRATE": {
+      "rows": 105,
+      "min_date": "2018-01-01",
+      "max_date": "2026-09-01",
+      "latest_value": 4.2,
+      "sha256_hash": "8ae6e9ee5a35288ed6b5f365921d2122fbfe025f48327f95269e7f6d97a5c009",
+      "status": "SUCCESS"
+    },
+    "DPRIME": {
+      "rows": 2285,
+      "min_date": "2018-01-01",
+      "max_date": "2026-10-02",
+      "latest_value": 7.0,
+      "sha256_hash": "8f6d82bb8ba64e3fa22fb3e3ce8a2826db1604f88cae8287a53093756179f118",
+      "status": "SUCCESS"
+    }
+  },
+  "dq_checks_evaluated": 24,
+  "dq_checks_passed": 24,
+  "dq_checks_failed": 0,
+  "status": "SUCCESS",
+  "end_time": "2026-10-06T18:00:41.585190+00:00",
+  "duration_seconds": 4.28
+}

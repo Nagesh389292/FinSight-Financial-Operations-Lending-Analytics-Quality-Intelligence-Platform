@@ -1,0 +1,458 @@
+{
+  "reportTitle": "FinSight Enterprise — Executive Business Intelligence Suite",
+  "theme": "Executive Dark / Modern Financial Blue",
+  "canvasWidth": 1280,
+  "canvasHeight": 720,
+  "pages": [
+    {
+      "pageNumber": 1,
+      "pageName": "Executive Overview",
+      "purpose": "CFO and Executive Board high-level summary of portfolio exposure, yield, cash collection, and credit risk.",
+      "visuals": [
+        {
+          "visualId": "kpi_portfolio_balance",
+          "type": "card",
+          "title": "Closing Portfolio Balance",
+          "measure": "[Closing Outstanding Principal]",
+          "format": "$#,##0.00",
+          "position": {"x": 20, "y": 80, "width": 190, "height": 90}
+        },
+        {
+          "visualId": "kpi_payment_volume",
+          "type": "card",
+          "title": "Total Payment Volume",
+          "measure": "[Total Payment Volume]",
+          "format": "$#,##0.00",
+          "position": {"x": 230, "y": 80, "width": 190, "height": 90}
+        },
+        {
+          "visualId": "kpi_interest_collected",
+          "type": "card",
+          "title": "Interest Collected",
+          "measure": "[Interest Collected]",
+          "format": "$#,##0.00",
+          "position": {"x": 440, "y": 80, "width": 190, "height": 90}
+        },
+        {
+          "visualId": "kpi_delinquency_rate",
+          "type": "card",
+          "title": "PAR 30 Delinquency Rate",
+          "measure": "[Delinquency Rate (30+ DPD)]",
+          "format": "0.00%",
+          "position": {"x": 650, "y": 80, "width": 190, "height": 90}
+        },
+        {
+          "visualId": "kpi_active_loans",
+          "type": "card",
+          "title": "Active Credit Facilities",
+          "measure": "[Active Loans]",
+          "format": "#,##0",
+          "position": {"x": 860, "y": 80, "width": 190, "height": 90}
+        },
+        {
+          "visualId": "kpi_war",
+          "type": "card",
+          "title": "Weighted Avg Rate (WAR)",
+          "measure": "[Weighted Average Rate (WAR)]",
+          "format": "0.00%",
+          "position": {"x": 1070, "y": 80, "width": 190, "height": 90}
+        },
+        {
+          "visualId": "chart_monthly_cashflow_trend",
+          "type": "areaChart",
+          "title": "Monthly Cash Collections vs Interest Yield Trend",
+          "xAxis": "dim_date[year_month]",
+          "values": ["[Total Payment Volume]", "[Interest Collected]"],
+          "position": {"x": 20, "y": 190, "width": 620, "height": 260}
+        },
+        {
+          "visualId": "chart_product_mix",
+          "type": "barChart",
+          "title": "Outstanding Balance by Lending Product Family",
+          "categoryAxis": "dim_product[product_family]",
+          "valueAxis": "[Outstanding Principal]",
+          "position": {"x": 660, "y": 190, "width": 600, "height": 260}
+        },
+        {
+          "visualId": "chart_risk_breakdown",
+          "type": "donutChart",
+          "title": "Credit Risk Portfolio Health Status",
+          "legend": "dim_customer[credit_tier]",
+          "values": "[Outstanding Principal]",
+          "position": {"x": 20, "y": 470, "width": 420, "height": 230}
+        },
+        {
+          "visualId": "matrix_segment_summary",
+          "type": "matrix",
+          "title": "Borrower Segment Financial Performance Summary",
+          "rows": ["dim_customer[segment]"],
+          "values": ["[Total Loans]", "[Outstanding Principal]", "[Total Payment Volume]", "[Delinquency Rate (30+ DPD)]"],
+          "position": {"x": 460, "y": 470, "width": 800, "height": 230}
+        }
+      ]
+    },
+    {
+      "pageNumber": 2,
+      "pageName": "Lending Performance",
+      "purpose": "Portfolio servicing health, product mix, credit tier segmentation, and DPD delinquency transitions.",
+      "visuals": [
+        {
+          "visualId": "kpi_orig_principal",
+          "type": "card",
+          "title": "Originated Commitment",
+          "measure": "[Original Principal]",
+          "format": "$#,##0.00",
+          "position": {"x": 20, "y": 80, "width": 290, "height": 90}
+        },
+        {
+          "visualId": "kpi_avg_facility",
+          "type": "card",
+          "title": "Average Facility Size",
+          "measure": "[Average Facility Size]",
+          "format": "$#,##0.00",
+          "position": {"x": 330, "y": 80, "width": 290, "height": 90}
+        },
+        {
+          "visualId": "kpi_delinq_bal",
+          "type": "card",
+          "title": "Delinquent Exposure (30+ DPD)",
+          "measure": "[Delinquent Balance (30+ DPD)]",
+          "format": "$#,##0.00",
+          "position": {"x": 640, "y": 80, "width": 290, "height": 90}
+        },
+        {
+          "visualId": "kpi_default_bal",
+          "type": "card",
+          "title": "Impaired Exposure (90+ DPD)",
+          "measure": "[Default Balance (90+ DPD)]",
+          "format": "$#,##0.00",
+          "position": {"x": 950, "y": 80, "width": 290, "height": 90}
+        },
+        {
+          "visualId": "chart_dpd_aging_distribution",
+          "type": "columnChart",
+          "title": "Delinquency Aging Buckets (Current vs 30-59 vs 60-89 vs 90+ DPD)",
+          "categoryAxis": "fact_loan_performance[days_past_due]",
+          "valueAxis": "[Outstanding Principal]",
+          "position": {"x": 20, "y": 190, "width": 620, "height": 260}
+        },
+        {
+          "visualId": "chart_segment_performance",
+          "type": "barChart",
+          "title": "Loan Facilities by Customer Segment",
+          "categoryAxis": "dim_customer[segment]",
+          "valueAxis": "[Total Loans]",
+          "position": {"x": 660, "y": 190, "width": 600, "height": 260}
+        },
+        {
+          "visualId": "table_facility_drilldown",
+          "type": "table",
+          "title": "Facility Contract Master Register & Servicing State",
+          "columns": [
+            "dim_loan[loan_id]",
+            "dim_customer[legal_name]",
+            "dim_product[product_name]",
+            "dim_loan[original_principal]",
+            "dim_loan[annual_interest_rate]",
+            "fact_loan_performance[status]",
+            "fact_loan_performance[days_past_due]"
+          ],
+          "position": {"x": 20, "y": 470, "width": 1240, "height": 230}
+        }
+      ]
+    },
+    {
+      "pageNumber": 3,
+      "pageName": "Financial Performance",
+      "purpose": "Revenue Recognition, Cash Allocations Waterfall, and General Ledger Double-Entry Audit.",
+      "visuals": [
+        {
+          "visualId": "kpi_total_payments",
+          "type": "card",
+          "title": "Gross Cash Collections",
+          "measure": "[Total Payment Volume]",
+          "format": "$#,##0.00",
+          "position": {"x": 20, "y": 80, "width": 230, "height": 90}
+        },
+        {
+          "visualId": "kpi_principal_coll",
+          "type": "card",
+          "title": "Principal Amortized",
+          "measure": "[Principal Collected]",
+          "format": "$#,##0.00",
+          "position": {"x": 270, "y": 80, "width": 230, "height": 90}
+        },
+        {
+          "visualId": "kpi_interest_coll",
+          "type": "card",
+          "title": "Interest Yield Collected",
+          "measure": "[Interest Collected]",
+          "format": "$#,##0.00",
+          "position": {"x": 520, "y": 80, "width": 230, "height": 90}
+        },
+        {
+          "visualId": "kpi_fees_coll",
+          "type": "card",
+          "title": "Fees Collected",
+          "measure": "[Fees Collected]",
+          "format": "$#,##0.00",
+          "position": {"x": 770, "y": 80, "width": 230, "height": 90}
+        },
+        {
+          "visualId": "kpi_gl_variance",
+          "type": "card",
+          "title": "GL Debit-Credit Variance",
+          "measure": "[GL Variance (Debit - Credit)]",
+          "format": "$#,##0.00",
+          "position": {"x": 1020, "y": 80, "width": 240, "height": 90}
+        },
+        {
+          "visualId": "chart_waterfall_allocation",
+          "type": "waterfallChart",
+          "title": "Contractual Cash Waterfall Allocation ($351.57M Inflow)",
+          "category": "Allocation Component",
+          "values": ["[Principal Collected]", "[Interest Collected]", "[Fees Collected]", "[Prepayments Collected]"],
+          "position": {"x": 20, "y": 190, "width": 620, "height": 260}
+        },
+        {
+          "visualId": "chart_gl_monthly_movement",
+          "type": "lineClusteredColumnChart",
+          "title": "Monthly General Ledger Activity: Debits vs Credits",
+          "xAxis": "dim_date[year_month]",
+          "columnValues": ["[Total Debits]", "[Total Credits]"],
+          "lineValues": ["[Net GL Movement]"],
+          "position": {"x": 660, "y": 190, "width": 600, "height": 260}
+        },
+        {
+          "visualId": "table_gl_trial_balance",
+          "type": "table",
+          "title": "General Ledger Trial Balance & Tie-Out (Zero-Variance Enforcement)",
+          "columns": [
+            "fact_financial[gl_account_code]",
+            "fact_financial[total_debit]",
+            "fact_financial[total_credit]",
+            "fact_financial[net_movement]",
+            "fact_financial[ending_balance]"
+          ],
+          "position": {"x": 20, "y": 470, "width": 1240, "height": 230}
+        }
+      ]
+    },
+    {
+      "pageNumber": 4,
+      "pageName": "Forecast & Scenario",
+      "purpose": "Portfolio projections, macroeconomic interest rate shock simulation, and expected credit loss stress testing.",
+      "visuals": [
+        {
+          "visualId": "kpi_forecast_baseline",
+          "type": "card",
+          "title": "Baseline 12M Portfolio Forecast",
+          "measure": "[Baseline Portfolio 12M Forecast]",
+          "format": "$#,##0.00",
+          "position": {"x": 20, "y": 80, "width": 290, "height": 90}
+        },
+        {
+          "visualId": "kpi_stress_rate_shock",
+          "type": "card",
+          "title": "+200bps Rate Shock Balance",
+          "measure": "[Stress Scenario 1 Balance (+200bps Fed Shock)]",
+          "format": "$#,##0.00",
+          "position": {"x": 330, "y": 80, "width": 290, "height": 90}
+        },
+        {
+          "visualId": "kpi_stress_delinq_spike",
+          "type": "card",
+          "title": "2x Delinquency Spike Balance",
+          "measure": "[Stress Scenario 2 Balance (Delinquency Spike 2x)]",
+          "format": "$#,##0.00",
+          "position": {"x": 640, "y": 80, "width": 290, "height": 90}
+        },
+        {
+          "visualId": "kpi_stress_loss_exposure",
+          "type": "card",
+          "title": "Stressed Loss Exposure (45% LGD)",
+          "measure": "[Stress Loss Exposure ($)]",
+          "format": "$#,##0.00",
+          "position": {"x": 950, "y": 80, "width": 290, "height": 90}
+        },
+        {
+          "visualId": "chart_forecast_trajectory",
+          "type": "lineChart",
+          "title": "Portfolio Balance Projections: Baseline vs Rate Shock vs Delinquency Spike",
+          "xAxis": "dim_date[year_month]",
+          "values": ["[Outstanding Principal]", "[Baseline Portfolio 12M Forecast]", "[Stress Scenario 1 Balance (+200bps Fed Shock)]"],
+          "position": {"x": 20, "y": 190, "width": 800, "height": 510}
+        },
+        {
+          "visualId": "card_stress_assumptions",
+          "type": "textCard",
+          "title": "Macroeconomic Scenario Assumptions & Sensitivity Matrix",
+          "text": "Baseline: +0.50% organic MoM growth | Adverse Shock: +200bps Fed Funds Rate spike, -4.0% prepayment curtailment | Severe Recession: 2.0x delinquency surge, 45% LGD loss rate on defaulted balances.",
+          "position": {"x": 840, "y": 190, "width": 420, "height": 510}
+        }
+      ]
+    },
+    {
+      "pageNumber": 5,
+      "pageName": "QA & Defects",
+      "purpose": "Genpact Lending QA Intelligence, RTM defect distribution, severity triage, and automated resolution velocity.",
+      "visuals": [
+        {
+          "visualId": "kpi_total_defects",
+          "type": "card",
+          "title": "Injected Defects Detected",
+          "measure": "[Total Defects]",
+          "format": "#,##0",
+          "position": {"x": 20, "y": 80, "width": 190, "height": 90}
+        },
+        {
+          "visualId": "kpi_crit_defects",
+          "type": "card",
+          "title": "Critical Defects (P1)",
+          "measure": "[Critical Defects]",
+          "format": "#,##0",
+          "position": {"x": 230, "y": 80, "width": 190, "height": 90}
+        },
+        {
+          "visualId": "kpi_major_defects",
+          "type": "card",
+          "title": "Major Defects (P2)",
+          "measure": "[Major Defects]",
+          "format": "#,##0",
+          "position": {"x": 440, "y": 80, "width": 190, "height": 90}
+        },
+        {
+          "visualId": "kpi_defect_density",
+          "type": "card",
+          "title": "Defect Density (/1k Ops)",
+          "measure": "[Defect Density per 1k Ops]",
+          "format": "0.00",
+          "position": {"x": 650, "y": 80, "width": 190, "height": 90}
+        },
+        {
+          "visualId": "kpi_inj_rate",
+          "type": "card",
+          "title": "Actual Injection Rate",
+          "measure": "[Defect Injection Rate %]",
+          "format": "0.00%",
+          "position": {"x": 860, "y": 80, "width": 190, "height": 90}
+        },
+        {
+          "visualId": "kpi_variance_exposure",
+          "type": "card",
+          "title": "Total Financial Exposure",
+          "measure": "[Total Financial Variance Exposure]",
+          "format": "$#,##0.00",
+          "position": {"x": 1070, "y": 80, "width": 190, "height": 90}
+        },
+        {
+          "visualId": "chart_defects_by_root_cause",
+          "type": "barChart",
+          "title": "Detected Defects by Root Cause Category",
+          "categoryAxis": "fact_defect[root_cause_category]",
+          "valueAxis": "[Total Defects]",
+          "position": {"x": 20, "y": 190, "width": 620, "height": 260}
+        },
+        {
+          "visualId": "chart_defects_by_status",
+          "type": "donutChart",
+          "title": "Defect Lifecycle Triage Progression",
+          "legend": "fact_defect[status]",
+          "values": "[Total Defects]",
+          "position": {"x": 660, "y": 190, "width": 600, "height": 260}
+        },
+        {
+          "visualId": "table_defect_register",
+          "type": "table",
+          "title": "Automated QA Defect Extraction Register & RTM Mapping",
+          "columns": [
+            "fact_defect[defect_id]",
+            "fact_defect[severity]",
+            "fact_defect[priority]",
+            "fact_defect[status]",
+            "fact_defect[root_cause_category]",
+            "fact_defect[variance_amount]",
+            "fact_defect[days_open]"
+          ],
+          "position": {"x": 20, "y": 470, "width": 1240, "height": 230}
+        }
+      ]
+    },
+    {
+      "pageNumber": 6,
+      "pageName": "Data Quality & Operations",
+      "purpose": "Platform SRE, SLI rule scorecard compliance, and cryptographic audit log monitoring.",
+      "visuals": [
+        {
+          "visualId": "kpi_dq_compliance",
+          "type": "card",
+          "title": "Platform Quality Health",
+          "measure": "[Overall DQ Compliance %]",
+          "format": "0.00%",
+          "position": {"x": 20, "y": 80, "width": 230, "height": 90}
+        },
+        {
+          "visualId": "kpi_dq_rules_evaluated",
+          "type": "card",
+          "title": "Rules Evaluated",
+          "measure": "[Total DQ Rules Evaluated]",
+          "format": "#,##0",
+          "position": {"x": 270, "y": 80, "width": 230, "height": 90}
+        },
+        {
+          "visualId": "kpi_dq_rules_passed",
+          "type": "card",
+          "title": "Rules Passed",
+          "measure": "[DQ Rules Passed]",
+          "format": "#,##0",
+          "position": {"x": 520, "y": 80, "width": 230, "height": 90}
+        },
+        {
+          "visualId": "kpi_records_audited",
+          "type": "card",
+          "title": "Records Audited",
+          "measure": "[Audited Records Count]",
+          "format": "#,##0",
+          "position": {"x": 770, "y": 80, "width": 230, "height": 90}
+        },
+        {
+          "visualId": "kpi_audit_events",
+          "type": "card",
+          "title": "SHA-256 Audit Events",
+          "measure": "[Governance Audit Trail Events]",
+          "format": "#,##0",
+          "position": {"x": 1020, "y": 80, "width": 240, "height": 90}
+        },
+        {
+          "visualId": "chart_dq_by_dimension",
+          "type": "barChart",
+          "title": "Compliance Rate by Enterprise Data Quality Dimension",
+          "categoryAxis": "fact_data_quality[check_category]",
+          "valueAxis": "[Overall DQ Compliance %]",
+          "position": {"x": 20, "y": 190, "width": 620, "height": 260}
+        },
+        {
+          "visualId": "chart_test_execution_pass_rate",
+          "type": "columnChart",
+          "title": "Automated QA Test Execution Pass Rate by Category",
+          "categoryAxis": "fact_test_execution[test_category]",
+          "valueAxis": "fact_test_execution[pass_rate_pct]",
+          "position": {"x": 660, "y": 190, "width": 600, "height": 260}
+        },
+        {
+          "visualId": "table_dq_scorecard",
+          "type": "table",
+          "title": "Enterprise Data Quality SLI Audit Scorecard",
+          "columns": [
+            "fact_data_quality[check_category]",
+            "fact_data_quality[total_rules_evaluated]",
+            "fact_data_quality[rules_passed]",
+            "fact_data_quality[rules_failed]",
+            "fact_data_quality[overall_compliance_pct]"
+          ],
+          "position": {"x": 20, "y": 470, "width": 1240, "height": 230}
+        }
+      ]
+    }
+  ]
+}

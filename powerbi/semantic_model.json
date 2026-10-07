@@ -1,0 +1,320 @@
+{
+  "name": "FinSight Enterprise Semantic Model",
+  "compatibilityLevel": 1606,
+  "description": "Enterprise Financial Operations, Lending Analytics & Quality Intelligence Semantic Model conforming to Kimball Star Schema standards.",
+  "tables": [
+    {
+      "name": "dim_date",
+      "source": "analytics.dim_date",
+      "description": "Conformed enterprise calendar dimension table spanning 2020-2028 with day, week, month, quarter, and year hierarchies.",
+      "grain": "One record per calendar day (date_key YYYYMMDD)",
+      "primaryKey": ["date_key"],
+      "columns": [
+        {"name": "date_key", "dataType": "int64", "isHidden": false, "description": "Surrogate date key in YYYYMMDD format"},
+        {"name": "full_date", "dataType": "dateTime", "isKey": true, "formatString": "yyyy-MM-dd"},
+        {"name": "calendar_year", "dataType": "int64", "formatString": "0"},
+        {"name": "calendar_quarter", "dataType": "int64", "formatString": "0"},
+        {"name": "quarter_name", "dataType": "string"},
+        {"name": "month_number", "dataType": "int64", "formatString": "0"},
+        {"name": "month_name", "dataType": "string"},
+        {"name": "month_short", "dataType": "string"},
+        {"name": "year_month", "dataType": "string"},
+        {"name": "day_of_month", "dataType": "int64"},
+        {"name": "day_of_week", "dataType": "int64"},
+        {"name": "day_name", "dataType": "string"},
+        {"name": "is_weekend", "dataType": "boolean"},
+        {"name": "is_month_end", "dataType": "boolean"}
+      ]
+    },
+    {
+      "name": "dim_customer",
+      "source": "analytics.dim_customer",
+      "description": "Conformed borrower dimension containing legal entity profiles, geography, segment, and credit score tiers.",
+      "grain": "One record per borrower legal entity (customer_key)",
+      "primaryKey": ["customer_key"],
+      "columns": [
+        {"name": "customer_key", "dataType": "int64", "isKey": true},
+        {"name": "customer_id", "dataType": "string"},
+        {"name": "legal_name", "dataType": "string"},
+        {"name": "customer_type", "dataType": "string"},
+        {"name": "region", "dataType": "string"},
+        {"name": "segment", "dataType": "string"},
+        {"name": "risk_category", "dataType": "string"},
+        {"name": "credit_score", "dataType": "int64", "formatString": "#,##0"},
+        {"name": "credit_tier", "dataType": "string"}
+      ]
+    },
+    {
+      "name": "dim_product",
+      "source": "analytics.dim_product",
+      "description": "Conformed lending facility product catalog defining amortization rules, rate types, and benchmark indices.",
+      "grain": "One record per loan product code (product_key)",
+      "primaryKey": ["product_key"],
+      "columns": [
+        {"name": "product_key", "dataType": "int64", "isKey": true},
+        {"name": "product_code", "dataType": "string"},
+        {"name": "product_name", "dataType": "string"},
+        {"name": "product_family", "dataType": "string"},
+        {"name": "rate_type", "dataType": "string"},
+        {"name": "interest_method", "dataType": "string"},
+        {"name": "default_amortization", "dataType": "string"},
+        {"name": "benchmark_index", "dataType": "string"}
+      ]
+    },
+    {
+      "name": "dim_loan",
+      "source": "analytics.dim_loan",
+      "description": "Conformed credit facility dimension capturing contract origination terms, rates, and maturities.",
+      "grain": "One record per credit facility contract (loan_key)",
+      "primaryKey": ["loan_key"],
+      "columns": [
+        {"name": "loan_key", "dataType": "int64", "isKey": true},
+        {"name": "loan_id", "dataType": "string"},
+        {"name": "customer_id", "dataType": "string"},
+        {"name": "product_code", "dataType": "string"},
+        {"name": "start_date", "dataType": "dateTime", "formatString": "yyyy-MM-dd"},
+        {"name": "maturity_date", "dataType": "dateTime", "formatString": "yyyy-MM-dd"},
+        {"name": "original_principal", "dataType": "double", "formatString": "$#,##0.00"},
+        {"name": "annual_interest_rate", "dataType": "double", "formatString": "0.0000%"},
+        {"name": "term_months", "dataType": "int64", "formatString": "#,##0"},
+        {"name": "rate_type", "dataType": "string"},
+        {"name": "interest_method", "dataType": "string"}
+      ]
+    },
+    {
+      "name": "fact_loan_performance",
+      "source": "analytics.fact_loan_performance",
+      "description": "Monthly periodic snapshot fact tracking facility balances, accruals, DPD aging, and servicing transitions.",
+      "grain": "One record per credit facility per monthly billing cycle (loan_key + date_key)",
+      "primaryKey": ["performance_key"],
+      "columns": [
+        {"name": "performance_key", "dataType": "int64", "isKey": true},
+        {"name": "date_key", "dataType": "int64"},
+        {"name": "customer_key", "dataType": "int64"},
+        {"name": "product_key", "dataType": "int64"},
+        {"name": "loan_key", "dataType": "int64"},
+        {"name": "loan_id", "dataType": "string"},
+        {"name": "status", "dataType": "string"},
+        {"name": "servicing_status", "dataType": "string"},
+        {"name": "outstanding_principal", "dataType": "double", "formatString": "$#,##0.00"},
+        {"name": "scheduled_principal", "dataType": "double", "formatString": "$#,##0.00"},
+        {"name": "accrued_interest", "dataType": "double", "formatString": "$#,##0.00"},
+        {"name": "fees_due", "dataType": "double", "formatString": "$#,##0.00"},
+        {"name": "total_due", "dataType": "double", "formatString": "$#,##0.00"},
+        {"name": "days_past_due", "dataType": "int64", "formatString": "#,##0"},
+        {"name": "is_delinquent_30_plus", "dataType": "boolean"},
+        {"name": "is_default_90_plus", "dataType": "boolean"}
+      ]
+    },
+    {
+      "name": "fact_payment",
+      "source": "analytics.fact_payment",
+      "description": "Transaction fact recording cash payments received and contractual waterfall allocations.",
+      "grain": "One record per cash payment transaction (payment_key)",
+      "primaryKey": ["payment_key"],
+      "columns": [
+        {"name": "payment_key", "dataType": "int64", "isKey": true},
+        {"name": "date_key", "dataType": "int64"},
+        {"name": "customer_key", "dataType": "int64"},
+        {"name": "product_key", "dataType": "int64"},
+        {"name": "loan_key", "dataType": "int64"},
+        {"name": "payment_id", "dataType": "string"},
+        {"name": "payment_amount", "dataType": "double", "formatString": "$#,##0.00"},
+        {"name": "principal_applied", "dataType": "double", "formatString": "$#,##0.00"},
+        {"name": "interest_applied", "dataType": "double", "formatString": "$#,##0.00"},
+        {"name": "fees_applied", "dataType": "double", "formatString": "$#,##0.00"},
+        {"name": "prepayment_applied", "dataType": "double", "formatString": "$#,##0.00"},
+        {"name": "closing_principal_balance", "dataType": "double", "formatString": "$#,##0.00"}
+      ]
+    },
+    {
+      "name": "fact_financial",
+      "source": "analytics.fact_financial",
+      "description": "General Ledger periodic snapshot recording debit and credit accounting movements by account code.",
+      "grain": "One record per GL account code per date per product line (financial_key)",
+      "primaryKey": ["financial_key"],
+      "columns": [
+        {"name": "financial_key", "dataType": "int64", "isKey": true},
+        {"name": "date_key", "dataType": "int64"},
+        {"name": "product_key", "dataType": "int64"},
+        {"name": "gl_account_code", "dataType": "string"},
+        {"name": "total_debit", "dataType": "double", "formatString": "$#,##0.00"},
+        {"name": "total_credit", "dataType": "double", "formatString": "$#,##0.00"},
+        {"name": "net_movement", "dataType": "double", "formatString": "$#,##0.00"},
+        {"name": "ending_balance", "dataType": "double", "formatString": "$#,##0.00"}
+      ]
+    },
+    {
+      "name": "fact_test_execution",
+      "source": "analytics.fact_test_execution",
+      "description": "Quality engineering test run executions tracking test pass/fail volumes and execution run durations.",
+      "grain": "One record per test run execution per category (qa_fact_key)",
+      "primaryKey": ["qa_fact_key"],
+      "columns": [
+        {"name": "qa_fact_key", "dataType": "int64", "isKey": true},
+        {"name": "run_id", "dataType": "string"},
+        {"name": "date_key", "dataType": "int64"},
+        {"name": "test_category", "dataType": "string"},
+        {"name": "total_tests_executed", "dataType": "int64", "formatString": "#,##0"},
+        {"name": "tests_passed", "dataType": "int64", "formatString": "#,##0"},
+        {"name": "tests_failed", "dataType": "int64", "formatString": "#,##0"},
+        {"name": "tests_skipped", "dataType": "int64", "formatString": "#,##0"},
+        {"name": "pass_rate_pct", "dataType": "double", "formatString": "0.00%"},
+        {"name": "execution_duration_sec", "dataType": "double", "formatString": "0.00"}
+      ]
+    },
+    {
+      "name": "fact_defect",
+      "source": "analytics.fact_defect",
+      "description": "Defect management fact storing detected reconciliation variances, root causes, severity, priority, and aging.",
+      "grain": "One record per detected defect (defect_key)",
+      "primaryKey": ["defect_key"],
+      "columns": [
+        {"name": "defect_key", "dataType": "int64", "isKey": true},
+        {"name": "date_key", "dataType": "int64"},
+        {"name": "defect_id", "dataType": "string"},
+        {"name": "severity", "dataType": "string"},
+        {"name": "priority", "dataType": "string"},
+        {"name": "status", "dataType": "string"},
+        {"name": "root_cause_category", "dataType": "string"},
+        {"name": "variance_amount", "dataType": "double", "formatString": "$#,##0.00"},
+        {"name": "days_open", "dataType": "int64", "formatString": "#,##0"}
+      ]
+    },
+    {
+      "name": "fact_data_quality",
+      "source": "analytics.fact_data_quality",
+      "description": "Data Quality SLI evaluation fact capturing rule compliance by dimension (Completeness, Validity, etc.).",
+      "grain": "One record per DQ dimension evaluation run (dq_fact_key)",
+      "primaryKey": ["dq_fact_key"],
+      "columns": [
+        {"name": "dq_fact_key", "dataType": "int64", "isKey": true},
+        {"name": "date_key", "dataType": "int64"},
+        {"name": "check_category", "dataType": "string"},
+        {"name": "total_rules_evaluated", "dataType": "int64", "formatString": "#,##0"},
+        {"name": "rules_passed", "dataType": "int64", "formatString": "#,##0"},
+        {"name": "rules_failed", "dataType": "int64", "formatString": "#,##0"},
+        {"name": "overall_compliance_pct", "dataType": "double", "formatString": "0.00%"}
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "name": "Rel_Date_LoanPerf",
+      "fromTable": "fact_loan_performance",
+      "fromColumn": "date_key",
+      "toTable": "dim_date",
+      "toColumn": "date_key",
+      "cardinality": "manyToOne",
+      "crossFilteringBehavior": "oneDirection"
+    },
+    {
+      "name": "Rel_Customer_LoanPerf",
+      "fromTable": "fact_loan_performance",
+      "fromColumn": "customer_key",
+      "toTable": "dim_customer",
+      "toColumn": "customer_key",
+      "cardinality": "manyToOne",
+      "crossFilteringBehavior": "oneDirection"
+    },
+    {
+      "name": "Rel_Product_LoanPerf",
+      "fromTable": "fact_loan_performance",
+      "fromColumn": "product_key",
+      "toTable": "dim_product",
+      "toColumn": "product_key",
+      "cardinality": "manyToOne",
+      "crossFilteringBehavior": "oneDirection"
+    },
+    {
+      "name": "Rel_Loan_LoanPerf",
+      "fromTable": "fact_loan_performance",
+      "fromColumn": "loan_key",
+      "toTable": "dim_loan",
+      "toColumn": "loan_key",
+      "cardinality": "manyToOne",
+      "crossFilteringBehavior": "oneDirection"
+    },
+    {
+      "name": "Rel_Date_Payment",
+      "fromTable": "fact_payment",
+      "fromColumn": "date_key",
+      "toTable": "dim_date",
+      "toColumn": "date_key",
+      "cardinality": "manyToOne",
+      "crossFilteringBehavior": "oneDirection"
+    },
+    {
+      "name": "Rel_Customer_Payment",
+      "fromTable": "fact_payment",
+      "fromColumn": "customer_key",
+      "toTable": "dim_customer",
+      "toColumn": "customer_key",
+      "cardinality": "manyToOne",
+      "crossFilteringBehavior": "oneDirection"
+    },
+    {
+      "name": "Rel_Product_Payment",
+      "fromTable": "fact_payment",
+      "fromColumn": "product_key",
+      "toTable": "dim_product",
+      "toColumn": "product_key",
+      "cardinality": "manyToOne",
+      "crossFilteringBehavior": "oneDirection"
+    },
+    {
+      "name": "Rel_Loan_Payment",
+      "fromTable": "fact_payment",
+      "fromColumn": "loan_key",
+      "toTable": "dim_loan",
+      "toColumn": "loan_key",
+      "cardinality": "manyToOne",
+      "crossFilteringBehavior": "oneDirection"
+    },
+    {
+      "name": "Rel_Date_Financial",
+      "fromTable": "fact_financial",
+      "fromColumn": "date_key",
+      "toTable": "dim_date",
+      "toColumn": "date_key",
+      "cardinality": "manyToOne",
+      "crossFilteringBehavior": "oneDirection"
+    },
+    {
+      "name": "Rel_Product_Financial",
+      "fromTable": "fact_financial",
+      "fromColumn": "product_key",
+      "toTable": "dim_product",
+      "toColumn": "product_key",
+      "cardinality": "manyToOne",
+      "crossFilteringBehavior": "oneDirection"
+    },
+    {
+      "name": "Rel_Date_TestExec",
+      "fromTable": "fact_test_execution",
+      "fromColumn": "date_key",
+      "toTable": "dim_date",
+      "toColumn": "date_key",
+      "cardinality": "manyToOne",
+      "crossFilteringBehavior": "oneDirection"
+    },
+    {
+      "name": "Rel_Date_Defect",
+      "fromTable": "fact_defect",
+      "fromColumn": "date_key",
+      "toTable": "dim_date",
+      "toColumn": "date_key",
+      "cardinality": "manyToOne",
+      "crossFilteringBehavior": "oneDirection"
+    },
+    {
+      "name": "Rel_Date_DataQuality",
+      "fromTable": "fact_data_quality",
+      "fromColumn": "date_key",
+      "toTable": "dim_date",
+      "toColumn": "date_key",
+      "cardinality": "manyToOne",
+      "crossFilteringBehavior": "oneDirection"
+    }
+  ]
+}

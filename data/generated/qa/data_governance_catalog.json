@@ -1,0 +1,136 @@
+{
+  "catalog_timestamp": "2026-10-06T00:00:00+00:00",
+  "total_governed_entities": 7,
+  "data_lineage_catalog": [
+    {
+      "table_name": "raw_fred_macro",
+      "schema": "raw",
+      "domain": "Macroeconomics",
+      "data_owner": "Treasury & Market Risk",
+      "classification": "PUBLIC",
+      "source_system": "Federal Reserve Bank of St. Louis (FRED API)",
+      "upstream_sources": [
+        "FRED: SOFR, FEDFUNDS, DGS10, CPIAUCNS, UNRATE, DPRIME"
+      ],
+      "downstream_consumers": [
+        "core.loan_terms",
+        "analytics.fact_financial",
+        "forecasting.models"
+      ],
+      "update_frequency": "Monthly / Daily",
+      "quality_sla": "100% Completeness, 0 Imputation Gaps"
+    },
+    {
+      "table_name": "core.customers",
+      "schema": "core",
+      "domain": "Lending Core",
+      "data_owner": "Credit Underwriting & KYC",
+      "classification": "CONFIDENTIAL (Synthetic PII)",
+      "source_system": "Customer Origination Simulator",
+      "upstream_sources": [
+        "generation.customer_generator"
+      ],
+      "downstream_consumers": [
+        "core.loans",
+        "analytics.dim_customer"
+      ],
+      "update_frequency": "Daily Batch",
+      "quality_sla": "Zero Duplicate Customer IDs, FICO between 300-850"
+    },
+    {
+      "table_name": "core.loans",
+      "schema": "core",
+      "domain": "Lending Core",
+      "data_owner": "Servicing Operations",
+      "classification": "CONFIDENTIAL",
+      "source_system": "Loan Origination Simulator",
+      "upstream_sources": [
+        "core.customers",
+        "core.loan_products",
+        "raw_fred_macro"
+      ],
+      "downstream_consumers": [
+        "finance.payments",
+        "analytics.dim_loan",
+        "analytics.fact_loan_performance"
+      ],
+      "update_frequency": "Real-time / Batch",
+      "quality_sla": "100% Referential Integrity, Principal > 0"
+    },
+    {
+      "table_name": "finance.payments",
+      "schema": "finance",
+      "domain": "Financial Servicing",
+      "data_owner": "Cash & Treasury Management",
+      "classification": "RESTRICTED",
+      "source_system": "Payment Servicing Engine",
+      "upstream_sources": [
+        "servicing.payment_execution"
+      ],
+      "downstream_consumers": [
+        "finance.payment_allocations",
+        "finance.accounting_entries",
+        "analytics.fact_payment"
+      ],
+      "update_frequency": "Daily Servicing Cycle",
+      "quality_sla": "100% Positive Payment Amounts, Zero Orphans"
+    },
+    {
+      "table_name": "finance.payment_allocations",
+      "schema": "finance",
+      "domain": "Financial Accounting",
+      "data_owner": "Financial Controller",
+      "classification": "RESTRICTED",
+      "source_system": "Waterfall Allocation Engine",
+      "upstream_sources": [
+        "finance.payments",
+        "core.loan_terms"
+      ],
+      "downstream_consumers": [
+        "finance.accounting_entries",
+        "analytics.fact_payment"
+      ],
+      "update_frequency": "Daily Allocation Batch",
+      "quality_sla": "Exact Conservation: Allocated == Fees + Interest + Principal + Prepayment"
+    },
+    {
+      "table_name": "finance.accounting_entries",
+      "schema": "finance",
+      "domain": "General Ledger",
+      "data_owner": "Accounting Operations",
+      "classification": "RESTRICTED",
+      "source_system": "General Ledger Double-Entry Engine",
+      "upstream_sources": [
+        "finance.interest_accruals",
+        "finance.payment_allocations"
+      ],
+      "downstream_consumers": [
+        "analytics.fact_financial",
+        "powerbi.financial_reporting"
+      ],
+      "update_frequency": "Daily GL Close",
+      "quality_sla": "Zero Unbalanced Entries: Sum(Debit) == Sum(Credit)"
+    },
+    {
+      "table_name": "qa.defects",
+      "schema": "qa",
+      "domain": "Quality Engineering",
+      "data_owner": "Head of Quality Engineering",
+      "classification": "INTERNAL",
+      "source_system": "Automated QA Reconciliation Engine",
+      "upstream_sources": [
+        "quality.qa_engine",
+        "api.app.services.math_truth"
+      ],
+      "downstream_consumers": [
+        "analytics.fact_defect",
+        "powerbi.qa_console"
+      ],
+      "update_frequency": "Continuous CI/CD",
+      "quality_sla": "100% RTM Traceability, MTTR < 48 Hours for Criticals"
+    }
+  ],
+  "audit_log_records_count": 200,
+  "immutable_hashing_algorithm": "SHA-256",
+  "audit_retention_policy_years": 7
+}

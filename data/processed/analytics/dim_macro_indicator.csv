@@ -1,0 +1,7 @@
+indicator_key,series_id,series_name,reporting_source,unit_of_measure
+1,SOFR,Secured Overnight Financing Rate,FRED,Percent
+2,DPRIME,Bank Prime Loan Rate,FRED,Percent
+3,FEDFUNDS,Effective Federal Funds Rate,FRED,Percent
+4,DGS10,10-Year Treasury Constant Maturity Yield,FRED,Percent
+5,CPIAUCNS,Consumer Price Index (All Urban Consumers),FRED,Index 1982-1984=100
+6,UNRATE,Civilian Unemployment Rate,FRED,Percent

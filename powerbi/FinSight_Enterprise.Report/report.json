@@ -1,0 +1,503 @@
+{
+  "config": "{\"version\":\"5.66\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU08\",\"type\":2,\"version\":{\"visual\":\"1.8.91\",\"report\":\"2.0.91\",\"page\":\"1.3.91\"}}},\"activeSectionIndex\":4,\"linguisticSchemaSyncVersion\":2}",
+  "layoutOptimization": 0,
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Executive Overview",
+      "displayOption": 0,
+      "height": 720.0,
+      "name": "ReportSection_0",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"chart_monthly_cashflow_trend\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":190,\"z\":6000,\"width\":620,\"height\":260}}],\"singleVisual\":{\"visualType\":\"areaChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_date.year_month\",\"active\":true}],\"Y\":[{\"queryRef\":\"_Measures.Total Payment Volume\"},{\"queryRef\":\"_Measures.Interest Collected\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dim_date\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"year_month\"},\"Name\":\"dim_date.year_month\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Payment Volume\"},\"Name\":\"_Measures.Total Payment Volume\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Interest Collected\"},\"Name\":\"_Measures.Interest Collected\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Monthly Cash Collections vs Interest Yield Trend'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 260.0,
+          "width": 620.0,
+          "x": 20.0,
+          "y": 190.0,
+          "z": 6000.0
+        },
+        {
+          "config": "{\"name\":\"chart_product_mix\",\"layouts\":[{\"id\":0,\"position\":{\"x\":660,\"y\":190,\"z\":7000,\"width\":600,\"height\":260}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_product.product_family\",\"active\":true}],\"Y\":[{\"queryRef\":\"_Measures.Outstanding Principal\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dim_product\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"product_family\"},\"Name\":\"dim_product.product_family\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Outstanding Principal\"},\"Name\":\"_Measures.Outstanding Principal\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Outstanding Balance by Lending Product Family'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 260.0,
+          "width": 600.0,
+          "x": 660.0,
+          "y": 190.0,
+          "z": 7000.0
+        },
+        {
+          "config": "{\"name\":\"chart_risk_breakdown\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":470,\"z\":8000,\"width\":420,\"height\":230}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_customer.credit_tier\",\"active\":true}],\"Y\":[{\"queryRef\":\"_Measures.Outstanding Principal\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dim_customer\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"credit_tier\"},\"Name\":\"dim_customer.credit_tier\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Outstanding Principal\"},\"Name\":\"_Measures.Outstanding Principal\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Credit Risk Portfolio Health Status'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 230.0,
+          "width": 420.0,
+          "x": 20.0,
+          "y": 470.0,
+          "z": 8000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_active_loans\",\"layouts\":[{\"id\":0,\"position\":{\"x\":860,\"y\":80,\"z\":4000,\"width\":190,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Active Loans\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Active Loans\"},\"Name\":\"_Measures.Active Loans\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Active Credit Facilities'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 190.0,
+          "x": 860.0,
+          "y": 80.0,
+          "z": 4000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_delinquency_rate\",\"layouts\":[{\"id\":0,\"position\":{\"x\":650,\"y\":80,\"z\":3000,\"width\":190,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Delinquency Rate (30+ DPD)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Delinquency Rate (30+ DPD)\"},\"Name\":\"_Measures.Delinquency Rate (30+ DPD)\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'PAR 30 Delinquency Rate'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 190.0,
+          "x": 650.0,
+          "y": 80.0,
+          "z": 3000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_interest_collected\",\"layouts\":[{\"id\":0,\"position\":{\"x\":440,\"y\":80,\"z\":2000,\"width\":190,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Interest Collected\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Interest Collected\"},\"Name\":\"_Measures.Interest Collected\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Interest Collected'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 190.0,
+          "x": 440.0,
+          "y": 80.0,
+          "z": 2000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_payment_volume\",\"layouts\":[{\"id\":0,\"position\":{\"x\":230,\"y\":80,\"z\":1000,\"width\":190,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Total Payment Volume\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Payment Volume\"},\"Name\":\"_Measures.Total Payment Volume\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Total Payment Volume'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 190.0,
+          "x": 230.0,
+          "y": 80.0,
+          "z": 1000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_portfolio_balance\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20.58325935107791,\"y\":62.41365298659081,\"z\":0,\"width\":190,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Outstanding Principal\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Outstanding Principal\"},\"Name\":\"_Measures.Outstanding Principal\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Closing Portfolio Balance'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 190.0,
+          "x": 20.58,
+          "y": 62.41,
+          "z": 0.0
+        },
+        {
+          "config": "{\"name\":\"kpi_war\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1070,\"y\":80,\"z\":5000,\"width\":190,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Weighted Average Rate (WAR)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Weighted Average Rate (WAR)\"},\"Name\":\"_Measures.Weighted Average Rate (WAR)\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Weighted Avg Rate (WAR)'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 190.0,
+          "x": 1070.0,
+          "y": 80.0,
+          "z": 5000.0
+        },
+        {
+          "config": "{\"name\":\"matrix_segment_summary\",\"layouts\":[{\"id\":0,\"position\":{\"x\":460,\"y\":470,\"z\":9000,\"width\":800,\"height\":230}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Rows\":[{\"queryRef\":\"dim_customer.segment\",\"active\":true}],\"Values\":[{\"queryRef\":\"_Measures.Total Loans\"},{\"queryRef\":\"_Measures.Outstanding Principal\"},{\"queryRef\":\"_Measures.Total Payment Volume\"},{\"queryRef\":\"_Measures.Delinquency Rate (30+ DPD)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dim_customer\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"segment\"},\"Name\":\"dim_customer.segment\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Loans\"},\"Name\":\"_Measures.Total Loans\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Outstanding Principal\"},\"Name\":\"_Measures.Outstanding Principal\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Payment Volume\"},\"Name\":\"_Measures.Total Payment Volume\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Delinquency Rate (30+ DPD)\"},\"Name\":\"_Measures.Delinquency Rate (30+ DPD)\"}]},\"objects\":{\"general\":[{\"properties\":{\"layout\":{\"expr\":{\"Literal\":{\"Value\":\"'Tabular'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Borrower Segment Financial Performance Summary'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 230.0,
+          "width": 800.0,
+          "x": 460.0,
+          "y": 470.0,
+          "z": 9000.0
+        }
+      ],
+      "width": 1280.0
+    },
+    {
+      "config": "{}",
+      "displayName": "Lending Performance",
+      "displayOption": 0,
+      "height": 720.0,
+      "name": "ReportSection_1",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"chart_dpd_aging_distribution\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":190,\"z\":4000,\"width\":620,\"height\":260}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"fact_loan_performance.days_past_due\",\"active\":true}],\"Y\":[{\"queryRef\":\"_Measures.Outstanding Principal\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"fact_loan_performance\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"days_past_due\"},\"Name\":\"fact_loan_performance.days_past_due\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Outstanding Principal\"},\"Name\":\"_Measures.Outstanding Principal\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Delinquency Aging Buckets (Current vs 30-59 vs 60-89 vs 90+ DPD)'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 260.0,
+          "width": 620.0,
+          "x": 20.0,
+          "y": 190.0,
+          "z": 4000.0
+        },
+        {
+          "config": "{\"name\":\"chart_segment_performance\",\"layouts\":[{\"id\":0,\"position\":{\"x\":660,\"y\":190,\"z\":5000,\"width\":600,\"height\":260}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_customer.segment\",\"active\":true}],\"Y\":[{\"queryRef\":\"_Measures.Total Loans\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dim_customer\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"segment\"},\"Name\":\"dim_customer.segment\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Loans\"},\"Name\":\"_Measures.Total Loans\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Loan Facilities by Customer Segment'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 260.0,
+          "width": 600.0,
+          "x": 660.0,
+          "y": 190.0,
+          "z": 5000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_avg_facility\",\"layouts\":[{\"id\":0,\"position\":{\"x\":330,\"y\":80,\"z\":1000,\"width\":290,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Average Facility Size\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Average Facility Size\"},\"Name\":\"_Measures.Average Facility Size\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Average Facility Size'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 290.0,
+          "x": 330.0,
+          "y": 80.0,
+          "z": 1000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_default_bal\",\"layouts\":[{\"id\":0,\"position\":{\"x\":950,\"y\":80,\"z\":3000,\"width\":290,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Default Balance (90+ DPD)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Default Balance (90+ DPD)\"},\"Name\":\"_Measures.Default Balance (90+ DPD)\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Impaired Exposure (90+ DPD)'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 290.0,
+          "x": 950.0,
+          "y": 80.0,
+          "z": 3000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_delinq_bal\",\"layouts\":[{\"id\":0,\"position\":{\"x\":640,\"y\":80,\"z\":2000,\"width\":290,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Delinquent Balance (30+ DPD)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Delinquent Balance (30+ DPD)\"},\"Name\":\"_Measures.Delinquent Balance (30+ DPD)\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Delinquent Exposure (30+ DPD)'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 290.0,
+          "x": 640.0,
+          "y": 80.0,
+          "z": 2000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_orig_principal\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":80,\"z\":0,\"width\":290,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Original Principal\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Original Principal\"},\"Name\":\"_Measures.Original Principal\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Originated Commitment'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 290.0,
+          "x": 20.0,
+          "y": 80.0,
+          "z": 0.0
+        },
+        {
+          "config": "{\"name\":\"table_facility_drilldown\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":470,\"z\":6000,\"width\":1240,\"height\":230}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_loan.loan_id\"},{\"queryRef\":\"dim_customer.legal_name\"},{\"queryRef\":\"dim_product.product_name\"},{\"queryRef\":\"dim_loan.original_principal\"},{\"queryRef\":\"dim_loan.annual_interest_rate\"},{\"queryRef\":\"fact_loan_performance.status\"},{\"queryRef\":\"fact_loan_performance.days_past_due\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_customer\",\"Type\":0},{\"Name\":\"d1\",\"Entity\":\"dim_loan\",\"Type\":0},{\"Name\":\"d2\",\"Entity\":\"dim_product\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"fact_loan_performance\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"loan_id\"},\"Name\":\"dim_loan.loan_id\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"legal_name\"},\"Name\":\"dim_customer.legal_name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d2\"}},\"Property\":\"product_name\"},\"Name\":\"dim_product.product_name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"original_principal\"},\"Name\":\"dim_loan.original_principal\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"annual_interest_rate\"},\"Name\":\"dim_loan.annual_interest_rate\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"status\"},\"Name\":\"fact_loan_performance.status\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"days_past_due\"},\"Name\":\"fact_loan_performance.days_past_due\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Facility Contract Master Register & Servicing State'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 230.0,
+          "width": 1240.0,
+          "x": 20.0,
+          "y": 470.0,
+          "z": 6000.0
+        }
+      ],
+      "width": 1280.0
+    },
+    {
+      "config": "{}",
+      "displayName": "Financial Performance",
+      "displayOption": 0,
+      "height": 720.0,
+      "name": "ReportSection_2",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"chart_gl_monthly_movement\",\"layouts\":[{\"id\":0,\"position\":{\"x\":660,\"y\":190,\"z\":6000,\"width\":600,\"height\":260}}],\"singleVisual\":{\"visualType\":\"lineClusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_date.year_month\"}],\"Y\":[{\"queryRef\":\"_Measures.Total Debits\"},{\"queryRef\":\"_Measures.Total Credits\"}],\"Y2\":[{\"queryRef\":\"_Measures.Net GL Movement\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dim_date\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"year_month\"},\"Name\":\"dim_date.year_month\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Debits\"},\"Name\":\"_Measures.Total Debits\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Credits\"},\"Name\":\"_Measures.Total Credits\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Net GL Movement\"},\"Name\":\"_Measures.Net GL Movement\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Monthly General Ledger Activity: Debits vs Credits'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 260.0,
+          "width": 600.0,
+          "x": 660.0,
+          "y": 190.0,
+          "z": 6000.0
+        },
+        {
+          "config": "{\"name\":\"chart_waterfall_allocation\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":190,\"z\":5000,\"width\":620,\"height\":260}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"_Measures.Principal Collected\"},{\"queryRef\":\"_Measures.Interest Collected\"},{\"queryRef\":\"_Measures.Fees Collected\"},{\"queryRef\":\"_Measures.Prepayments Collected\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Principal Collected\"},\"Name\":\"_Measures.Principal Collected\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Interest Collected\"},\"Name\":\"_Measures.Interest Collected\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Fees Collected\"},\"Name\":\"_Measures.Fees Collected\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Prepayments Collected\"},\"Name\":\"_Measures.Prepayments Collected\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Contractual Cash Waterfall Allocation ($351.57M Inflow)'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 260.0,
+          "width": 620.0,
+          "x": 20.0,
+          "y": 190.0,
+          "z": 5000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_fees_coll\",\"layouts\":[{\"id\":0,\"position\":{\"x\":770,\"y\":80,\"z\":3000,\"width\":230,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Fees Collected\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Fees Collected\"},\"Name\":\"_Measures.Fees Collected\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Fees Collected'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 230.0,
+          "x": 770.0,
+          "y": 80.0,
+          "z": 3000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_gl_variance\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1020,\"y\":80,\"z\":4000,\"width\":240,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.GL Variance (Debit - Credit)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"GL Variance (Debit - Credit)\"},\"Name\":\"_Measures.GL Variance (Debit - Credit)\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'GL Debit-Credit Variance'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 240.0,
+          "x": 1020.0,
+          "y": 80.0,
+          "z": 4000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_interest_coll\",\"layouts\":[{\"id\":0,\"position\":{\"x\":520,\"y\":80,\"z\":2000,\"width\":230,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Interest Collected\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Interest Collected\"},\"Name\":\"_Measures.Interest Collected\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Interest Yield Collected'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 230.0,
+          "x": 520.0,
+          "y": 80.0,
+          "z": 2000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_principal_coll\",\"layouts\":[{\"id\":0,\"position\":{\"x\":270,\"y\":80,\"z\":1000,\"width\":230,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Principal Collected\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Principal Collected\"},\"Name\":\"_Measures.Principal Collected\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Principal Amortized'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 230.0,
+          "x": 270.0,
+          "y": 80.0,
+          "z": 1000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_total_payments\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":80,\"z\":0,\"width\":230,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Total Payment Volume\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Payment Volume\"},\"Name\":\"_Measures.Total Payment Volume\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Gross Cash Collections'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 230.0,
+          "x": 20.0,
+          "y": 80.0,
+          "z": 0.0
+        },
+        {
+          "config": "{\"name\":\"table_gl_trial_balance\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":470,\"z\":7000,\"width\":1240,\"height\":230}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"fact_financial.gl_account_code\"},{\"queryRef\":\"fact_financial.total_debit\"},{\"queryRef\":\"fact_financial.total_credit\"},{\"queryRef\":\"fact_financial.net_movement\"},{\"queryRef\":\"fact_financial.ending_balance\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fact_financial\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"gl_account_code\"},\"Name\":\"fact_financial.gl_account_code\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"total_debit\"},\"Name\":\"fact_financial.total_debit\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"total_credit\"},\"Name\":\"fact_financial.total_credit\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"net_movement\"},\"Name\":\"fact_financial.net_movement\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"ending_balance\"},\"Name\":\"fact_financial.ending_balance\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'General Ledger Trial Balance & Tie-Out (Zero-Variance Enforcement)'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 230.0,
+          "width": 1240.0,
+          "x": 20.0,
+          "y": 470.0,
+          "z": 7000.0
+        }
+      ],
+      "width": 1280.0
+    },
+    {
+      "config": "{}",
+      "displayName": "Forecast & Scenario",
+      "displayOption": 0,
+      "height": 720.0,
+      "name": "ReportSection_3",
+      "ordinal": 3,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"card_stress_assumptions\",\"layouts\":[{\"id\":0,\"position\":{\"x\":840,\"y\":190,\"z\":5000,\"width\":420,\"height\":510}}],\"singleVisual\":{\"visualType\":\"textbox\",\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Baseline: +0.50% organic MoM growth | Adverse Shock: +200bps Fed Funds Rate spike, -4.0% prepayment curtailment | Severe Recession: 2.0x delinquency surge, 45% LGD loss rate on defaulted balances.\",\"textStyle\":{\"fontSize\":\"11pt\"}}]}]}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Macroeconomic Scenario Assumptions & Sensitivity Matrix'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 510.0,
+          "width": 420.0,
+          "x": 840.0,
+          "y": 190.0,
+          "z": 5000.0
+        },
+        {
+          "config": "{\"name\":\"chart_forecast_trajectory\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":190,\"z\":4000,\"width\":800,\"height\":510}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_date.year_month\",\"active\":true}],\"Y\":[{\"queryRef\":\"_Measures.Outstanding Principal\"},{\"queryRef\":\"_Measures.Baseline Portfolio 12M Forecast\"},{\"queryRef\":\"_Measures.Stress Scenario 1 Balance (+200bps Fed Shock)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dim_date\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"year_month\"},\"Name\":\"dim_date.year_month\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Outstanding Principal\"},\"Name\":\"_Measures.Outstanding Principal\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Baseline Portfolio 12M Forecast\"},\"Name\":\"_Measures.Baseline Portfolio 12M Forecast\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Stress Scenario 1 Balance (+200bps Fed Shock)\"},\"Name\":\"_Measures.Stress Scenario 1 Balance (+200bps Fed Shock)\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Portfolio Balance Projections: Baseline vs Rate Shock vs Delinquency Spike'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 510.0,
+          "width": 800.0,
+          "x": 20.0,
+          "y": 190.0,
+          "z": 4000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_forecast_baseline\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":80,\"z\":0,\"width\":290,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Baseline Portfolio 12M Forecast\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Baseline Portfolio 12M Forecast\"},\"Name\":\"_Measures.Baseline Portfolio 12M Forecast\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Baseline 12M Portfolio Forecast'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 290.0,
+          "x": 20.0,
+          "y": 80.0,
+          "z": 0.0
+        },
+        {
+          "config": "{\"name\":\"kpi_stress_delinq_spike\",\"layouts\":[{\"id\":0,\"position\":{\"x\":640,\"y\":80,\"z\":2000,\"width\":290,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Stress Scenario 2 Balance (Delinquency Spike 2x)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Stress Scenario 2 Balance (Delinquency Spike 2x)\"},\"Name\":\"_Measures.Stress Scenario 2 Balance (Delinquency Spike 2x)\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'2x Delinquency Spike Balance'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 290.0,
+          "x": 640.0,
+          "y": 80.0,
+          "z": 2000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_stress_loss_exposure\",\"layouts\":[{\"id\":0,\"position\":{\"x\":950,\"y\":80,\"z\":3000,\"width\":290,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Stress Loss Exposure ($)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Stress Loss Exposure ($)\"},\"Name\":\"_Measures.Stress Loss Exposure ($)\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Stressed Loss Exposure (45% LGD)'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 290.0,
+          "x": 950.0,
+          "y": 80.0,
+          "z": 3000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_stress_rate_shock\",\"layouts\":[{\"id\":0,\"position\":{\"x\":330,\"y\":80,\"z\":1000,\"width\":290,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Stress Scenario 1 Balance (+200bps Fed Shock)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Stress Scenario 1 Balance (+200bps Fed Shock)\"},\"Name\":\"_Measures.Stress Scenario 1 Balance (+200bps Fed Shock)\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'+200bps Rate Shock Balance'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 290.0,
+          "x": 330.0,
+          "y": 80.0,
+          "z": 1000.0
+        }
+      ],
+      "width": 1280.0
+    },
+    {
+      "config": "{}",
+      "displayName": "QA & Defects",
+      "displayOption": 0,
+      "height": 720.0,
+      "name": "ReportSection_4",
+      "ordinal": 4,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"chart_defects_by_root_cause\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":190,\"z\":6000,\"width\":620,\"height\":260}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"fact_defect.root_cause_category\",\"active\":true}],\"Y\":[{\"queryRef\":\"_Measures.Total Defects\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"fact_defect\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"root_cause_category\"},\"Name\":\"fact_defect.root_cause_category\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Defects\"},\"Name\":\"_Measures.Total Defects\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Detected Defects by Root Cause Category'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 260.0,
+          "width": 620.0,
+          "x": 20.0,
+          "y": 190.0,
+          "z": 6000.0
+        },
+        {
+          "config": "{\"name\":\"chart_defects_by_status\",\"layouts\":[{\"id\":0,\"position\":{\"x\":660,\"y\":190,\"z\":7000,\"width\":600,\"height\":260}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Category\":[{\"queryRef\":\"fact_defect.status\",\"active\":true}],\"Y\":[{\"queryRef\":\"_Measures.Total Defects\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"fact_defect\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"status\"},\"Name\":\"fact_defect.status\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Defects\"},\"Name\":\"_Measures.Total Defects\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Defect Lifecycle Triage Progression'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 260.0,
+          "width": 600.0,
+          "x": 660.0,
+          "y": 190.0,
+          "z": 7000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_crit_defects\",\"layouts\":[{\"id\":0,\"position\":{\"x\":230,\"y\":80,\"z\":1000,\"width\":190,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Critical Defects\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Critical Defects\"},\"Name\":\"_Measures.Critical Defects\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Critical Defects (P1)'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 190.0,
+          "x": 230.0,
+          "y": 80.0,
+          "z": 1000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_defect_density\",\"layouts\":[{\"id\":0,\"position\":{\"x\":650,\"y\":80,\"z\":3000,\"width\":190,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Defect Density per 1k Ops\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Defect Density per 1k Ops\"},\"Name\":\"_Measures.Defect Density per 1k Ops\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Defect Density (/1k Ops)'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 190.0,
+          "x": 650.0,
+          "y": 80.0,
+          "z": 3000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_inj_rate\",\"layouts\":[{\"id\":0,\"position\":{\"x\":860,\"y\":80,\"z\":4000,\"width\":190,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Defect Injection Rate %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Defect Injection Rate %\"},\"Name\":\"_Measures.Defect Injection Rate %\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Actual Injection Rate'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 190.0,
+          "x": 860.0,
+          "y": 80.0,
+          "z": 4000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_major_defects\",\"layouts\":[{\"id\":0,\"position\":{\"x\":440,\"y\":80,\"z\":2000,\"width\":190,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Major Defects\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Major Defects\"},\"Name\":\"_Measures.Major Defects\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Major Defects (P2)'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 190.0,
+          "x": 440.0,
+          "y": 80.0,
+          "z": 2000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_total_defects\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":80,\"z\":0,\"width\":190,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Total Defects\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Defects\"},\"Name\":\"_Measures.Total Defects\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Injected Defects Detected'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 190.0,
+          "x": 20.0,
+          "y": 80.0,
+          "z": 0.0
+        },
+        {
+          "config": "{\"name\":\"kpi_variance_exposure\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1070,\"y\":80,\"z\":5000,\"width\":190,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Total Financial Variance Exposure\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Financial Variance Exposure\"},\"Name\":\"_Measures.Total Financial Variance Exposure\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Total Financial Exposure'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 190.0,
+          "x": 1070.0,
+          "y": 80.0,
+          "z": 5000.0
+        },
+        {
+          "config": "{\"name\":\"table_defect_register\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":470,\"z\":8000,\"width\":1240,\"height\":230}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"fact_defect.defect_id\"},{\"queryRef\":\"fact_defect.severity\"},{\"queryRef\":\"fact_defect.priority\"},{\"queryRef\":\"fact_defect.status\"},{\"queryRef\":\"fact_defect.root_cause_category\"},{\"queryRef\":\"fact_defect.variance_amount\"},{\"queryRef\":\"fact_defect.days_open\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fact_defect\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"defect_id\"},\"Name\":\"fact_defect.defect_id\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"severity\"},\"Name\":\"fact_defect.severity\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"priority\"},\"Name\":\"fact_defect.priority\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"status\"},\"Name\":\"fact_defect.status\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"root_cause_category\"},\"Name\":\"fact_defect.root_cause_category\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"variance_amount\"},\"Name\":\"fact_defect.variance_amount\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"days_open\"},\"Name\":\"fact_defect.days_open\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Automated QA Defect Extraction Register & RTM Mapping'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 230.0,
+          "width": 1240.0,
+          "x": 20.0,
+          "y": 470.0,
+          "z": 8000.0
+        }
+      ],
+      "width": 1280.0
+    },
+    {
+      "config": "{}",
+      "displayName": "Data Quality & Operations",
+      "displayOption": 0,
+      "height": 720.0,
+      "name": "ReportSection_5",
+      "ordinal": 5,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"chart_dq_by_dimension\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":190,\"z\":5000,\"width\":620,\"height\":260}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"fact_data_quality.check_category\",\"active\":true}],\"Y\":[{\"queryRef\":\"_Measures.Overall DQ Compliance %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"fact_data_quality\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"check_category\"},\"Name\":\"fact_data_quality.check_category\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Overall DQ Compliance %\"},\"Name\":\"_Measures.Overall DQ Compliance %\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Compliance Rate by Enterprise Data Quality Dimension'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 260.0,
+          "width": 620.0,
+          "x": 20.0,
+          "y": 190.0,
+          "z": 5000.0
+        },
+        {
+          "config": "{\"name\":\"chart_test_execution_pass_rate\",\"layouts\":[{\"id\":0,\"position\":{\"x\":660,\"y\":190,\"z\":6000,\"width\":600,\"height\":260}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"fact_test_execution.test_category\",\"active\":true}],\"Y\":[{\"queryRef\":\"fact_test_execution.pass_rate_pct\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fact_test_execution\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"test_category\"},\"Name\":\"fact_test_execution.test_category\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"pass_rate_pct\"},\"Name\":\"fact_test_execution.pass_rate_pct\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Automated QA Test Execution Pass Rate by Category'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 260.0,
+          "width": 600.0,
+          "x": 660.0,
+          "y": 190.0,
+          "z": 6000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_audit_events\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1020,\"y\":80,\"z\":4000,\"width\":240,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Governance Audit Trail Events\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Governance Audit Trail Events\"},\"Name\":\"_Measures.Governance Audit Trail Events\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'SHA-256 Audit Events'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 240.0,
+          "x": 1020.0,
+          "y": 80.0,
+          "z": 4000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_dq_compliance\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":80,\"z\":0,\"width\":230,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Overall DQ Compliance %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Overall DQ Compliance %\"},\"Name\":\"_Measures.Overall DQ Compliance %\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Platform Quality Health'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 230.0,
+          "x": 20.0,
+          "y": 80.0,
+          "z": 0.0
+        },
+        {
+          "config": "{\"name\":\"kpi_dq_rules_evaluated\",\"layouts\":[{\"id\":0,\"position\":{\"x\":270,\"y\":80,\"z\":1000,\"width\":230,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Total DQ Rules Evaluated\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total DQ Rules Evaluated\"},\"Name\":\"_Measures.Total DQ Rules Evaluated\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Rules Evaluated'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 230.0,
+          "x": 270.0,
+          "y": 80.0,
+          "z": 1000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_dq_rules_passed\",\"layouts\":[{\"id\":0,\"position\":{\"x\":520,\"y\":80,\"z\":2000,\"width\":230,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.DQ Rules Passed\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"DQ Rules Passed\"},\"Name\":\"_Measures.DQ Rules Passed\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Rules Passed'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 230.0,
+          "x": 520.0,
+          "y": 80.0,
+          "z": 2000.0
+        },
+        {
+          "config": "{\"name\":\"kpi_records_audited\",\"layouts\":[{\"id\":0,\"position\":{\"x\":770,\"y\":80,\"z\":3000,\"width\":230,\"height\":90}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Audited Records Count\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Audited Records Count\"},\"Name\":\"_Measures.Audited Records Count\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Records Audited'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.0,
+          "width": 230.0,
+          "x": 770.0,
+          "y": 80.0,
+          "z": 3000.0
+        },
+        {
+          "config": "{\"name\":\"table_dq_scorecard\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":470,\"z\":7000,\"width\":1240,\"height\":230}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"fact_data_quality.check_category\"},{\"queryRef\":\"fact_data_quality.total_rules_evaluated\"},{\"queryRef\":\"fact_data_quality.rules_passed\"},{\"queryRef\":\"fact_data_quality.rules_failed\"},{\"queryRef\":\"fact_data_quality.overall_compliance_pct\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fact_data_quality\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"check_category\"},\"Name\":\"fact_data_quality.check_category\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"total_rules_evaluated\"},\"Name\":\"fact_data_quality.total_rules_evaluated\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"rules_passed\"},\"Name\":\"fact_data_quality.rules_passed\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"rules_failed\"},\"Name\":\"fact_data_quality.rules_failed\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"overall_compliance_pct\"},\"Name\":\"fact_data_quality.overall_compliance_pct\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Enterprise Data Quality SLI Audit Scorecard'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 230.0,
+          "width": 1240.0,
+          "x": 20.0,
+          "y": 470.0,
+          "z": 7000.0
+        }
+      ],
+      "width": 1280.0
+    }
+  ]
+}

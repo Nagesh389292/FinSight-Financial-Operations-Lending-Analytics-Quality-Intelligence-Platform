@@ -1,0 +1,13 @@
+{
+  "generation_timestamp": "2026-10-06T18:09:37.947156+00:00",
+  "random_seed": 20261006,
+  "loan_count": 2500,
+  "customer_count": 2500,
+  "product_count": 5,
+  "floating_loans_count": 837,
+  "fixed_loans_count": 1663,
+  "total_portfolio_principal_usd": 4083242991.8700004,
+  "avg_interest_rate_pct": 7.9765,
+  "validation_status": "PASSED",
+  "injected_defects_count": 0
+}

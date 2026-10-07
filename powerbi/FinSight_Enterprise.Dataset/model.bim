@@ -1,0 +1,2492 @@
+{
+  "compatibilityLevel": 1606,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"dim_date\",\"dim_customer\",\"dim_product\",\"dim_loan\",\"fact_loan_performance\",\"fact_payment\",\"fact_financial\",\"fact_test_execution\",\"fact_defect\",\"fact_data_quality\",\"_Measures\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-US",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "relationships": [
+      {
+        "name": "Rel_Date_LoanPerf",
+        "fromColumn": "date_key",
+        "fromTable": "fact_loan_performance",
+        "toColumn": "date_key",
+        "toTable": "dim_date"
+      },
+      {
+        "name": "Rel_Customer_LoanPerf",
+        "fromColumn": "customer_key",
+        "fromTable": "fact_loan_performance",
+        "toColumn": "customer_key",
+        "toTable": "dim_customer"
+      },
+      {
+        "name": "Rel_Product_LoanPerf",
+        "fromColumn": "product_key",
+        "fromTable": "fact_loan_performance",
+        "toColumn": "product_key",
+        "toTable": "dim_product"
+      },
+      {
+        "name": "Rel_Loan_LoanPerf",
+        "fromColumn": "loan_key",
+        "fromTable": "fact_loan_performance",
+        "toColumn": "loan_key",
+        "toTable": "dim_loan"
+      },
+      {
+        "name": "Rel_Date_Payment",
+        "fromColumn": "date_key",
+        "fromTable": "fact_payment",
+        "toColumn": "date_key",
+        "toTable": "dim_date"
+      },
+      {
+        "name": "Rel_Customer_Payment",
+        "fromColumn": "customer_key",
+        "fromTable": "fact_payment",
+        "toColumn": "customer_key",
+        "toTable": "dim_customer"
+      },
+      {
+        "name": "Rel_Product_Payment",
+        "fromColumn": "product_key",
+        "fromTable": "fact_payment",
+        "toColumn": "product_key",
+        "toTable": "dim_product"
+      },
+      {
+        "name": "Rel_Loan_Payment",
+        "fromColumn": "loan_key",
+        "fromTable": "fact_payment",
+        "toColumn": "loan_key",
+        "toTable": "dim_loan"
+      },
+      {
+        "name": "Rel_Date_Financial",
+        "fromColumn": "date_key",
+        "fromTable": "fact_financial",
+        "toColumn": "date_key",
+        "toTable": "dim_date"
+      },
+      {
+        "name": "Rel_Product_Financial",
+        "fromColumn": "product_key",
+        "fromTable": "fact_financial",
+        "toColumn": "product_key",
+        "toTable": "dim_product"
+      },
+      {
+        "name": "Rel_Date_TestExec",
+        "fromColumn": "date_key",
+        "fromTable": "fact_test_execution",
+        "toColumn": "date_key",
+        "toTable": "dim_date"
+      },
+      {
+        "name": "Rel_Date_Defect",
+        "fromColumn": "date_key",
+        "fromTable": "fact_defect",
+        "toColumn": "date_key",
+        "toTable": "dim_date"
+      },
+      {
+        "name": "Rel_Date_DataQuality",
+        "fromColumn": "date_key",
+        "fromTable": "fact_data_quality",
+        "toColumn": "date_key",
+        "toTable": "dim_date"
+      },
+      {
+        "name": "60660415-8278-4dff-8898-8c0f25a80fdf",
+        "fromColumn": "full_date",
+        "fromTable": "dim_date",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_7ce08bac-2cc5-414e-87f7-ca6dd0f9d479"
+      },
+      {
+        "name": "297fbb68-c32b-4925-b96b-2c263964aa4b",
+        "fromColumn": "start_date",
+        "fromTable": "dim_loan",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_5dac1216-991e-489e-94c1-dc0b5ab8dcd7"
+      },
+      {
+        "name": "0829e404-d019-4199-bd9e-7f397cddcc82",
+        "fromColumn": "maturity_date",
+        "fromTable": "dim_loan",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_5016d720-f49f-4b96-82f5-86b27694e9c3"
+      }
+    ],
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "dim_date",
+        "columns": [
+          {
+            "name": "date_key",
+            "dataType": "int64",
+            "lineageTag": "2a1b2aa2-824b-43f0-8a74-83813a6d2914",
+            "sourceColumn": "date_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "full_date",
+            "dataType": "dateTime",
+            "formatString": "yyyy-MM-dd",
+            "lineageTag": "eb76e598-c1d7-4260-bdf8-0bc1ffdc0501",
+            "sourceColumn": "full_date",
+            "summarizeBy": "none",
+            "variations": [
+              {
+                "name": "Variation",
+                "defaultHierarchy": {
+                  "hierarchy": "Date Hierarchy",
+                  "table": "LocalDateTable_7ce08bac-2cc5-414e-87f7-ca6dd0f9d479"
+                },
+                "isDefault": true,
+                "relationship": "60660415-8278-4dff-8898-8c0f25a80fdf"
+              }
+            ]
+          },
+          {
+            "name": "calendar_year",
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "1e3bdafd-9a91-4613-bd78-afce6322f10b",
+            "sourceColumn": "calendar_year",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "calendar_quarter",
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "0a3ca799-bb46-41f6-a478-392988968bc6",
+            "sourceColumn": "calendar_quarter",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "quarter_name",
+            "dataType": "string",
+            "lineageTag": "96cb082a-1d75-4dad-8162-dbe1d9d94645",
+            "sourceColumn": "quarter_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "month_number",
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "9c7fdaf7-7ad7-4843-9758-3b3b384bf61e",
+            "sourceColumn": "month_number",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "month_name",
+            "dataType": "string",
+            "lineageTag": "096a2103-d4f7-406c-b661-054d83dc145e",
+            "sourceColumn": "month_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "month_short",
+            "dataType": "string",
+            "lineageTag": "ee1d8176-b733-446c-9e5f-053cfcc1f5e7",
+            "sourceColumn": "month_short",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "year_month",
+            "dataType": "string",
+            "lineageTag": "46bab38b-e7de-44c0-930e-8446d6f6f2dc",
+            "sourceColumn": "year_month",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "day_of_month",
+            "dataType": "int64",
+            "lineageTag": "5f904b25-b243-4ca9-836f-a359f26f23a9",
+            "sourceColumn": "day_of_month",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "day_of_week",
+            "dataType": "int64",
+            "lineageTag": "ba5ca5b3-fee8-4b24-9dc5-d9fc4c9414da",
+            "sourceColumn": "day_of_week",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "day_name",
+            "dataType": "string",
+            "lineageTag": "fc03e123-b58a-4122-8bb8-6a185b5e46c0",
+            "sourceColumn": "day_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "is_weekend",
+            "dataType": "boolean",
+            "lineageTag": "2625a257-3d8b-40b2-a06b-ec47e20752f8",
+            "sourceColumn": "is_weekend",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "is_month_end",
+            "dataType": "boolean",
+            "lineageTag": "854ed788-155d-4ec1-8208-096838c5c33f",
+            "sourceColumn": "is_month_end",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "357dda3e-4970-448d-aed6-66ab63406e3e",
+        "partitions": [
+          {
+            "name": "dim_date",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Parquet.Document(File.Contents(\"C:/Users/NAGESH REDDY/Desktop/Pro/data/processed/analytics/dim_date.parquet\"))",
+                "in",
+                "    Source"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_customer",
+        "columns": [
+          {
+            "name": "customer_key",
+            "dataType": "int64",
+            "lineageTag": "308cf930-7305-4660-ac1d-03590988e5d4",
+            "sourceColumn": "customer_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customer_id",
+            "dataType": "string",
+            "lineageTag": "22c6d726-de7f-45b1-825d-ec79ccc0b271",
+            "sourceColumn": "customer_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "legal_name",
+            "dataType": "string",
+            "lineageTag": "e6fa1a48-170f-44b0-bdd0-b23e88d8cff0",
+            "sourceColumn": "legal_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customer_type",
+            "dataType": "string",
+            "lineageTag": "eefa28ed-5d8b-4810-bd64-312d1813f461",
+            "sourceColumn": "customer_type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "region",
+            "dataType": "string",
+            "lineageTag": "bea69a5a-ecb3-47d4-a12b-24aff1e092a0",
+            "sourceColumn": "region",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "segment",
+            "dataType": "string",
+            "lineageTag": "07461c51-86ca-4301-8e2d-dc7f42a26307",
+            "sourceColumn": "segment",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "risk_category",
+            "dataType": "string",
+            "lineageTag": "a96265e0-4ef6-4b57-8898-fa237e087385",
+            "sourceColumn": "risk_category",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "credit_score",
+            "dataType": "int64",
+            "formatString": "#,##0",
+            "lineageTag": "12a17092-f8f6-42fd-8a7c-cf9526fb31b2",
+            "sourceColumn": "credit_score",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "credit_tier",
+            "dataType": "string",
+            "lineageTag": "c198c4a0-b85f-437a-8b02-c9dd294de02b",
+            "sourceColumn": "credit_tier",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "61ca077c-af71-4f9a-a7f8-bd4285fec74f",
+        "partitions": [
+          {
+            "name": "dim_customer",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Parquet.Document(File.Contents(\"C:/Users/NAGESH REDDY/Desktop/Pro/data/processed/analytics/dim_customer.parquet\"))",
+                "in",
+                "    Source"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_product",
+        "columns": [
+          {
+            "name": "product_key",
+            "dataType": "int64",
+            "lineageTag": "447ebe22-67ac-42ec-a446-571ac9a7d19e",
+            "sourceColumn": "product_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_code",
+            "dataType": "string",
+            "lineageTag": "da82b43d-6a18-4f0c-9d5b-60eb8f3d71f0",
+            "sourceColumn": "product_code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_name",
+            "dataType": "string",
+            "lineageTag": "809242b1-4032-4ff4-a183-01499822192a",
+            "sourceColumn": "product_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_family",
+            "dataType": "string",
+            "lineageTag": "58c0493c-f219-4d5e-ae56-19eda7b098c1",
+            "sourceColumn": "product_family",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "rate_type",
+            "dataType": "string",
+            "lineageTag": "3ae7e4e7-88f7-4370-8411-ca3d32dc97d6",
+            "sourceColumn": "rate_type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "interest_method",
+            "dataType": "string",
+            "lineageTag": "acba7279-78a1-4a19-9f78-ded043ea3269",
+            "sourceColumn": "interest_method",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "default_amortization",
+            "dataType": "string",
+            "lineageTag": "a435f681-f67d-4ded-a111-143bd6b50c96",
+            "sourceColumn": "default_amortization",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "benchmark_index",
+            "dataType": "string",
+            "lineageTag": "2e1e6a8a-9a5b-4a44-b5f4-218b3c4e0910",
+            "sourceColumn": "benchmark_index",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "22201fa4-7b5e-49a3-baea-e0642d6fd578",
+        "partitions": [
+          {
+            "name": "dim_product",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Parquet.Document(File.Contents(\"C:/Users/NAGESH REDDY/Desktop/Pro/data/processed/analytics/dim_product.parquet\"))",
+                "in",
+                "    Source"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_loan",
+        "columns": [
+          {
+            "name": "loan_key",
+            "dataType": "int64",
+            "lineageTag": "8c39c14c-ac00-4eff-a24d-dd26608dba55",
+            "sourceColumn": "loan_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "loan_id",
+            "dataType": "string",
+            "lineageTag": "a91ce322-fbfb-42af-94e9-31e85dc58f24",
+            "sourceColumn": "loan_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customer_id",
+            "dataType": "string",
+            "lineageTag": "62114729-3625-4ad0-bfa2-2a651ff3079b",
+            "sourceColumn": "customer_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_code",
+            "dataType": "string",
+            "lineageTag": "44210600-ecb5-4100-bf4f-4ca8de1ded25",
+            "sourceColumn": "product_code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "start_date",
+            "annotations": [
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "yyyy-MM-dd",
+            "lineageTag": "9736a2dc-04bd-47a0-ab36-18b9d40c7686",
+            "sourceColumn": "start_date",
+            "summarizeBy": "none",
+            "variations": [
+              {
+                "name": "Variation",
+                "defaultHierarchy": {
+                  "hierarchy": "Date Hierarchy",
+                  "table": "LocalDateTable_5dac1216-991e-489e-94c1-dc0b5ab8dcd7"
+                },
+                "isDefault": true,
+                "relationship": "297fbb68-c32b-4925-b96b-2c263964aa4b"
+              }
+            ]
+          },
+          {
+            "name": "maturity_date",
+            "annotations": [
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "yyyy-MM-dd",
+            "lineageTag": "038dac68-a8ab-46f0-9c13-9cb20677bbd8",
+            "sourceColumn": "maturity_date",
+            "summarizeBy": "none",
+            "variations": [
+              {
+                "name": "Variation",
+                "defaultHierarchy": {
+                  "hierarchy": "Date Hierarchy",
+                  "table": "LocalDateTable_5016d720-f49f-4b96-82f5-86b27694e9c3"
+                },
+                "isDefault": true,
+                "relationship": "0829e404-d019-4199-bd9e-7f397cddcc82"
+              }
+            ]
+          },
+          {
+            "name": "original_principal",
+            "dataType": "double",
+            "formatString": "$#,##0.00",
+            "lineageTag": "d03052c7-4d6f-45c6-94d4-70315267a4a1",
+            "sourceColumn": "original_principal",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "annual_interest_rate",
+            "dataType": "double",
+            "formatString": "0.0000%",
+            "lineageTag": "72cfd38e-63ee-4f8d-b2aa-fc4d5f8fc51d",
+            "sourceColumn": "annual_interest_rate",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "term_months",
+            "dataType": "int64",
+            "formatString": "#,##0",
+            "lineageTag": "0f79e226-244f-40a5-9593-5eec0ebf6802",
+            "sourceColumn": "term_months",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "rate_type",
+            "dataType": "string",
+            "lineageTag": "9ecfab93-a858-4252-bad3-34e14838f97b",
+            "sourceColumn": "rate_type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "interest_method",
+            "dataType": "string",
+            "lineageTag": "06d51882-70a4-4d94-a3ef-187ed3aabbc2",
+            "sourceColumn": "interest_method",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "3512a92b-ac57-48d8-b9bf-faf6ed5c30b5",
+        "partitions": [
+          {
+            "name": "dim_loan",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Parquet.Document(File.Contents(\"C:/Users/NAGESH REDDY/Desktop/Pro/data/processed/analytics/dim_loan.parquet\"))",
+                "in",
+                "    Source"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "fact_loan_performance",
+        "columns": [
+          {
+            "name": "performance_key",
+            "dataType": "int64",
+            "lineageTag": "91af84e5-b29a-4224-819a-e74f1e6af202",
+            "sourceColumn": "performance_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "date_key",
+            "dataType": "int64",
+            "lineageTag": "1c3bf1f4-7abc-4402-a16b-c9de47651210",
+            "sourceColumn": "date_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customer_key",
+            "dataType": "int64",
+            "lineageTag": "bd453122-cf56-423b-bd0c-4ae8cca0e668",
+            "sourceColumn": "customer_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_key",
+            "dataType": "int64",
+            "lineageTag": "caa3bfff-b420-4b25-aa6e-6731ada1f09e",
+            "sourceColumn": "product_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "loan_key",
+            "dataType": "int64",
+            "lineageTag": "cc452258-220d-402b-b2a2-b062604a9cce",
+            "sourceColumn": "loan_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "loan_id",
+            "dataType": "string",
+            "lineageTag": "d61b6f66-4876-44aa-a0d4-ef85e472d0fb",
+            "sourceColumn": "loan_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "status",
+            "dataType": "string",
+            "lineageTag": "a0eb6930-b8d3-4464-a527-5fd938afee6c",
+            "sourceColumn": "status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "servicing_status",
+            "dataType": "string",
+            "lineageTag": "701f3e1b-a7bc-46bd-8f8a-dbf072999e00",
+            "sourceColumn": "servicing_status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "outstanding_principal",
+            "dataType": "double",
+            "formatString": "$#,##0.00",
+            "lineageTag": "80dc9ce3-8762-4887-9c7a-99221e863c60",
+            "sourceColumn": "outstanding_principal",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "scheduled_principal",
+            "dataType": "double",
+            "formatString": "$#,##0.00",
+            "lineageTag": "a481dc1e-c685-4aa2-8dc7-5d9effff0a84",
+            "sourceColumn": "scheduled_principal",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "accrued_interest",
+            "dataType": "double",
+            "formatString": "$#,##0.00",
+            "lineageTag": "62f8208b-d5e8-4fc9-b07a-b6a5ffac42b9",
+            "sourceColumn": "accrued_interest",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "fees_due",
+            "dataType": "double",
+            "formatString": "$#,##0.00",
+            "lineageTag": "bb18189e-e55d-4539-8695-b521b5b1d8bf",
+            "sourceColumn": "fees_due",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "total_due",
+            "dataType": "double",
+            "formatString": "$#,##0.00",
+            "lineageTag": "78a33f2b-3393-47a8-baa5-1ea47c383007",
+            "sourceColumn": "total_due",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "days_past_due",
+            "dataType": "int64",
+            "formatString": "#,##0",
+            "lineageTag": "01f8a28a-dda0-46ee-bedf-2823a689b2c8",
+            "sourceColumn": "days_past_due",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "is_delinquent_30_plus",
+            "dataType": "boolean",
+            "lineageTag": "7d58de6d-584e-4ff0-a17c-878930379d49",
+            "sourceColumn": "is_delinquent_30_plus",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "is_default_90_plus",
+            "dataType": "boolean",
+            "lineageTag": "4b552418-6b19-4b55-8259-21b7c069f955",
+            "sourceColumn": "is_default_90_plus",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "c414d0c0-05c6-4962-b3c1-78667c84d49f",
+        "partitions": [
+          {
+            "name": "fact_loan_performance",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Parquet.Document(File.Contents(\"C:/Users/NAGESH REDDY/Desktop/Pro/data/processed/analytics/fact_loan_performance.parquet\"))",
+                "in",
+                "    Source"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "fact_payment",
+        "columns": [
+          {
+            "name": "payment_key",
+            "dataType": "int64",
+            "lineageTag": "ded941f0-5dbd-434b-97ae-efa949f337e1",
+            "sourceColumn": "payment_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "date_key",
+            "dataType": "int64",
+            "lineageTag": "2db58856-7465-458f-8107-0c27453d4956",
+            "sourceColumn": "date_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customer_key",
+            "dataType": "int64",
+            "lineageTag": "c87462e3-6159-4e92-a515-8757f875042b",
+            "sourceColumn": "customer_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_key",
+            "dataType": "int64",
+            "lineageTag": "21dff101-111a-490b-997d-3fa96225c017",
+            "sourceColumn": "product_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "loan_key",
+            "dataType": "int64",
+            "lineageTag": "008920f4-3069-40cc-91df-3c8535db68b9",
+            "sourceColumn": "loan_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "payment_id",
+            "dataType": "string",
+            "lineageTag": "e635e32b-6eec-4ef9-a40d-94cd272e9ba0",
+            "sourceColumn": "payment_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "payment_amount",
+            "dataType": "double",
+            "formatString": "$#,##0.00",
+            "lineageTag": "4395757b-3e8f-4532-9bb4-8faf803630d2",
+            "sourceColumn": "payment_amount",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "principal_applied",
+            "dataType": "double",
+            "formatString": "$#,##0.00",
+            "lineageTag": "e58dbf8d-951e-4c4a-8774-7c160537e76b",
+            "sourceColumn": "principal_applied",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "interest_applied",
+            "dataType": "double",
+            "formatString": "$#,##0.00",
+            "lineageTag": "390d3daa-b11a-48f5-a360-3c8f351fa563",
+            "sourceColumn": "interest_applied",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "fees_applied",
+            "dataType": "double",
+            "formatString": "$#,##0.00",
+            "lineageTag": "141a7f82-52fd-42c1-85e3-0764b53c0773",
+            "sourceColumn": "fees_applied",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "prepayment_applied",
+            "dataType": "double",
+            "formatString": "$#,##0.00",
+            "lineageTag": "4c4c983e-738b-40b6-ad6b-0164d9a1a2cf",
+            "sourceColumn": "prepayment_applied",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "closing_principal_balance",
+            "dataType": "double",
+            "formatString": "$#,##0.00",
+            "lineageTag": "6e546032-af10-49b1-ab80-571d18990152",
+            "sourceColumn": "closing_principal_balance",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "51c39b8b-44d0-41af-8f81-20c7290797e8",
+        "partitions": [
+          {
+            "name": "fact_payment",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Parquet.Document(File.Contents(\"C:/Users/NAGESH REDDY/Desktop/Pro/data/processed/analytics/fact_payment.parquet\"))",
+                "in",
+                "    Source"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "fact_financial",
+        "columns": [
+          {
+            "name": "financial_key",
+            "dataType": "int64",
+            "lineageTag": "236f82e9-7a72-4084-8be4-05bd0043d0ca",
+            "sourceColumn": "financial_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "date_key",
+            "dataType": "int64",
+            "lineageTag": "5dae1fe2-6e14-434f-8a7c-4c567b5f9d96",
+            "sourceColumn": "date_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_key",
+            "dataType": "int64",
+            "lineageTag": "83e45c97-531e-4c0e-84e1-e3453fc79d84",
+            "sourceColumn": "product_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "gl_account_code",
+            "dataType": "string",
+            "lineageTag": "60043ae2-8a22-4c6a-9c10-3f333d1780e8",
+            "sourceColumn": "gl_account_code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_debit",
+            "dataType": "double",
+            "formatString": "$#,##0.00",
+            "lineageTag": "85bb3276-723e-451c-8944-77ac749c9964",
+            "sourceColumn": "total_debit",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "total_credit",
+            "dataType": "double",
+            "formatString": "$#,##0.00",
+            "lineageTag": "e4ead095-3065-4e32-8615-0ab4215bfaa7",
+            "sourceColumn": "total_credit",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "net_movement",
+            "dataType": "double",
+            "formatString": "$#,##0.00",
+            "lineageTag": "7e0dbb58-be73-418c-983f-065af378f424",
+            "sourceColumn": "net_movement",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "ending_balance",
+            "dataType": "double",
+            "formatString": "$#,##0.00",
+            "lineageTag": "cb6f0a8b-abfb-41dd-9cc4-f84ab5d3c4e8",
+            "sourceColumn": "ending_balance",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "e9e39310-f2d6-4f80-ba73-c434f1ccd6a4",
+        "partitions": [
+          {
+            "name": "fact_financial",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Parquet.Document(File.Contents(\"C:/Users/NAGESH REDDY/Desktop/Pro/data/processed/analytics/fact_financial.parquet\"))",
+                "in",
+                "    Source"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "fact_test_execution",
+        "columns": [
+          {
+            "name": "qa_fact_key",
+            "dataType": "int64",
+            "lineageTag": "d2c95343-2fd8-4267-be10-836401c79010",
+            "sourceColumn": "qa_fact_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "run_id",
+            "dataType": "string",
+            "lineageTag": "32a988f0-bd0c-4725-a3fd-de0f119296f7",
+            "sourceColumn": "run_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "date_key",
+            "dataType": "int64",
+            "lineageTag": "f75caa19-ce60-40ce-ba0c-45c8b0f51411",
+            "sourceColumn": "date_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "test_category",
+            "dataType": "string",
+            "lineageTag": "49bfa4e9-6538-412e-a404-d5f6c81884cd",
+            "sourceColumn": "test_category",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_tests_executed",
+            "dataType": "int64",
+            "formatString": "#,##0",
+            "lineageTag": "bdb0b701-6f51-4c72-8a6f-974bca0287d9",
+            "sourceColumn": "total_tests_executed",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "tests_passed",
+            "dataType": "int64",
+            "formatString": "#,##0",
+            "lineageTag": "cf311e78-d2a6-44e0-a0b2-dc6edad3d3ed",
+            "sourceColumn": "tests_passed",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "tests_failed",
+            "dataType": "int64",
+            "formatString": "#,##0",
+            "lineageTag": "0ed933de-8f40-4d1a-b75b-a8643b7df5b2",
+            "sourceColumn": "tests_failed",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "tests_skipped",
+            "dataType": "int64",
+            "formatString": "#,##0",
+            "lineageTag": "e97fce04-7b14-4363-9ca0-5823656aa19b",
+            "sourceColumn": "tests_skipped",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "pass_rate_pct",
+            "dataType": "double",
+            "formatString": "0.00%",
+            "lineageTag": "cc0d9fd6-9e23-49e9-aec7-626e3b913a55",
+            "sourceColumn": "pass_rate_pct",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "execution_duration_sec",
+            "dataType": "double",
+            "formatString": "0.00",
+            "lineageTag": "c50e459d-c0cf-4af7-8743-23b13eef1169",
+            "sourceColumn": "execution_duration_sec",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "ca162bec-b2d0-4130-aa5b-f6f7094a8d43",
+        "partitions": [
+          {
+            "name": "fact_test_execution",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Parquet.Document(File.Contents(\"C:/Users/NAGESH REDDY/Desktop/Pro/data/processed/analytics/fact_test_execution.parquet\"))",
+                "in",
+                "    Source"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "fact_defect",
+        "columns": [
+          {
+            "name": "defect_key",
+            "dataType": "int64",
+            "lineageTag": "deea9dbe-5f3d-400f-856f-63daefde0cd4",
+            "sourceColumn": "defect_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "date_key",
+            "dataType": "int64",
+            "lineageTag": "faf3cbe0-39ee-4666-bd5a-dab8f56b71dd",
+            "sourceColumn": "date_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "defect_id",
+            "dataType": "string",
+            "lineageTag": "be369bc8-be68-4281-898f-575c39b9e2d4",
+            "sourceColumn": "defect_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "severity",
+            "dataType": "string",
+            "lineageTag": "7447cd42-53ff-44e8-aa37-36810b949b1f",
+            "sourceColumn": "severity",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "priority",
+            "dataType": "string",
+            "lineageTag": "57c2f112-e3d9-499e-88e6-3bc600e5d981",
+            "sourceColumn": "priority",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "status",
+            "dataType": "string",
+            "lineageTag": "688c33fa-1974-4a58-b065-9a169fa4b734",
+            "sourceColumn": "status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "root_cause_category",
+            "dataType": "string",
+            "lineageTag": "6dfa5712-efde-40eb-a13c-ba77789ad88c",
+            "sourceColumn": "root_cause_category",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "variance_amount",
+            "dataType": "double",
+            "formatString": "$#,##0.00",
+            "lineageTag": "fc7f4dbb-8fc9-4eb2-aec5-c6876c7e61d3",
+            "sourceColumn": "variance_amount",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "days_open",
+            "dataType": "int64",
+            "formatString": "#,##0",
+            "lineageTag": "6bbfd2fe-9387-49ad-8257-dfac459b214a",
+            "sourceColumn": "days_open",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "58be36d3-cad1-4074-bd2b-9c0c04f24a7f",
+        "partitions": [
+          {
+            "name": "fact_defect",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Parquet.Document(File.Contents(\"C:/Users/NAGESH REDDY/Desktop/Pro/data/processed/analytics/fact_defect.parquet\"))",
+                "in",
+                "    Source"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "fact_data_quality",
+        "columns": [
+          {
+            "name": "dq_fact_key",
+            "dataType": "int64",
+            "lineageTag": "f9e2a2dc-e882-4054-9c9a-f68c74dbb6bf",
+            "sourceColumn": "dq_fact_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "date_key",
+            "dataType": "int64",
+            "lineageTag": "065a4c75-dffb-4c98-a7ae-bcf555088ede",
+            "sourceColumn": "date_key",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "check_category",
+            "dataType": "string",
+            "lineageTag": "f2f820cf-678e-4ea0-9b56-7e69ffbe2d83",
+            "sourceColumn": "check_category",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_rules_evaluated",
+            "dataType": "int64",
+            "formatString": "#,##0",
+            "lineageTag": "f1037edc-128d-46ef-8548-197ea84b9a61",
+            "sourceColumn": "total_rules_evaluated",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "rules_passed",
+            "dataType": "int64",
+            "formatString": "#,##0",
+            "lineageTag": "3bfb3203-47ff-4518-9a12-715cac48b97d",
+            "sourceColumn": "rules_passed",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "rules_failed",
+            "dataType": "int64",
+            "formatString": "#,##0",
+            "lineageTag": "a956e92b-fad0-4e48-af4d-d8942ef95a4e",
+            "sourceColumn": "rules_failed",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "overall_compliance_pct",
+            "dataType": "double",
+            "formatString": "0.00%",
+            "lineageTag": "d37b2999-86fe-4d63-ac07-077f7bf7d1e2",
+            "sourceColumn": "overall_compliance_pct",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "fd3736cd-3627-4e64-9d56-8f14c52b9cc1",
+        "partitions": [
+          {
+            "name": "fact_data_quality",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Parquet.Document(File.Contents(\"C:/Users/NAGESH REDDY/Desktop/Pro/data/processed/analytics/fact_data_quality.parquet\"))",
+                "in",
+                "    Source"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "_Measures",
+        "columns": [
+          {
+            "name": "Measure",
+            "dataType": "string",
+            "isHidden": true,
+            "lineageTag": "d8a83217-9aae-457a-8713-1570a810912d",
+            "sourceColumn": "Measure",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "e10c6f0a-a70a-4c56-af64-ece2ffd249ca",
+        "measures": [
+          {
+            "name": "Total Loans",
+            "displayFolder": "01_Portfolio_Lending",
+            "expression": "DISTINCTCOUNT(dim_loan[loan_id])",
+            "formatString": "#,##0",
+            "lineageTag": "bcd9bafe-da51-452e-8ed3-ce75e7c6e947"
+          },
+          {
+            "name": "Original Principal",
+            "displayFolder": "01_Portfolio_Lending",
+            "expression": "SUM(dim_loan[original_principal])",
+            "formatString": "$#,##0.00",
+            "lineageTag": "311b64d8-9f3a-4a1e-b21b-37ec7992cd5a"
+          },
+          {
+            "name": "Outstanding Principal",
+            "displayFolder": "01_Portfolio_Lending",
+            "expression": "SUM(fact_loan_performance[outstanding_principal])",
+            "formatString": "$#,##0.00",
+            "lineageTag": "dca99e57-0386-40ab-803e-7a748890c512"
+          },
+          {
+            "name": "Average Facility Size",
+            "displayFolder": "01_Portfolio_Lending",
+            "expression": "DIVIDE([Outstanding Principal], [Total Loans], 0)",
+            "formatString": "$#,##0.00",
+            "lineageTag": "341d8466-3362-47d4-bee3-ee1cc77c0e07"
+          },
+          {
+            "name": "Active Loans",
+            "displayFolder": "01_Portfolio_Lending",
+            "expression": [
+              "CALCULATE(",
+              "    [Total Loans],",
+              "    fact_loan_performance[status] = \"ACTIVE\"",
+              ")"
+            ],
+            "formatString": "#,##0",
+            "lineageTag": "0870255c-319f-4e4d-b5ec-aa9d53870a7b"
+          },
+          {
+            "name": "Weighted Average Rate (WAR)",
+            "displayFolder": "01_Portfolio_Lending",
+            "expression": [
+              "DIVIDE(",
+              "    SUMX(dim_loan, dim_loan[original_principal] * dim_loan[annual_interest_rate]),",
+              "    [Original Principal],",
+              "    0",
+              ")"
+            ],
+            "formatString": "0.00%",
+            "lineageTag": "0671b1eb-cbcb-4ba1-9f13-bc8b1c024b61"
+          },
+          {
+            "name": "Total Payment Volume",
+            "displayFolder": "02_Payments_CashFlow",
+            "expression": "SUM(fact_payment[payment_amount])",
+            "formatString": "$#,##0.00",
+            "lineageTag": "0ba56ebd-a167-4006-88d0-8cfafdacf28d"
+          },
+          {
+            "name": "Principal Collected",
+            "displayFolder": "02_Payments_CashFlow",
+            "expression": "SUM(fact_payment[principal_applied])",
+            "formatString": "$#,##0.00",
+            "lineageTag": "d0f2847f-254e-47ff-b1b5-afa8cfd18c92"
+          },
+          {
+            "name": "Interest Collected",
+            "displayFolder": "02_Payments_CashFlow",
+            "expression": "SUM(fact_payment[interest_applied])",
+            "formatString": "$#,##0.00",
+            "lineageTag": "475e328e-5ee2-40ab-8f0d-afbba6801053"
+          },
+          {
+            "name": "Fees Collected",
+            "displayFolder": "02_Payments_CashFlow",
+            "expression": "SUM(fact_payment[fees_applied])",
+            "formatString": "$#,##0.00",
+            "lineageTag": "9966c43d-6416-402f-9c19-9dc09118a251"
+          },
+          {
+            "name": "Prepayments Collected",
+            "displayFolder": "02_Payments_CashFlow",
+            "expression": "SUM(fact_payment[prepayment_applied])",
+            "formatString": "$#,##0.00",
+            "lineageTag": "293f9039-ce93-4bfe-8c43-15d397254a61"
+          },
+          {
+            "name": "Total Scheduled Due",
+            "displayFolder": "02_Payments_CashFlow",
+            "expression": "SUM(fact_loan_performance[total_due])",
+            "formatString": "#,##0",
+            "lineageTag": "0c2aec5b-4ead-430a-b131-84265af75669"
+          },
+          {
+            "name": "Collection Efficiency %",
+            "displayFolder": "02_Payments_CashFlow",
+            "expression": "DIVIDE([Total Payment Volume], [Total Scheduled Due], 0)",
+            "formatString": "0.00%",
+            "lineageTag": "298b460f-9219-4fed-8811-57f5c51bf52a"
+          },
+          {
+            "name": "Delinquent Balance (30+ DPD)",
+            "displayFolder": "03_Delinquency_Risk",
+            "expression": [
+              "CALCULATE(",
+              "    [Outstanding Principal],",
+              "    fact_loan_performance[is_delinquent_30_plus] = TRUE()",
+              ")"
+            ],
+            "formatString": "$#,##0.00",
+            "lineageTag": "9e76698f-5f4d-47fa-9e7b-72732601f022"
+          },
+          {
+            "name": "Default Balance (90+ DPD)",
+            "displayFolder": "03_Delinquency_Risk",
+            "expression": [
+              "CALCULATE(",
+              "    [Outstanding Principal],",
+              "    fact_loan_performance[is_default_90_plus] = TRUE()",
+              ")"
+            ],
+            "formatString": "$#,##0.00",
+            "lineageTag": "ab5515a2-2cdf-4d8a-ad38-b517e81a091f"
+          },
+          {
+            "name": "Delinquency Rate (30+ DPD)",
+            "displayFolder": "03_Delinquency_Risk",
+            "expression": "DIVIDE([Delinquent Balance (30+ DPD)], [Outstanding Principal], 0)",
+            "formatString": "0.00%",
+            "lineageTag": "25814668-26d4-4258-bbf8-a7085dd0df04"
+          },
+          {
+            "name": "Default Rate (90+ DPD)",
+            "displayFolder": "03_Delinquency_Risk",
+            "expression": "DIVIDE([Default Balance (90+ DPD)], [Outstanding Principal], 0)",
+            "formatString": "0.00%",
+            "lineageTag": "43bb5964-a8b5-47ff-9d10-f0a6801b97ec"
+          },
+          {
+            "name": "Current Performing Balance",
+            "displayFolder": "03_Delinquency_Risk",
+            "expression": [
+              "CALCULATE(",
+              "    [Outstanding Principal],",
+              "    fact_loan_performance[days_past_due] < 30",
+              ")"
+            ],
+            "formatString": "$#,##0.00",
+            "lineageTag": "073f5421-6103-42dd-a17d-dfdec163fc8c"
+          },
+          {
+            "name": "Current Performing Rate %",
+            "displayFolder": "03_Delinquency_Risk",
+            "expression": "DIVIDE([Current Performing Balance], [Outstanding Principal], 0)",
+            "formatString": "0.00%",
+            "lineageTag": "d89cc202-2fad-4551-84f6-3cc69ef3d9f9"
+          },
+          {
+            "name": "Total Debits",
+            "displayFolder": "04_Financial_GL",
+            "expression": "SUM(fact_financial[total_debit])",
+            "formatString": "$#,##0.00",
+            "lineageTag": "7d132a36-d792-49d8-94b5-a6d7c3d6e172"
+          },
+          {
+            "name": "Total Credits",
+            "displayFolder": "04_Financial_GL",
+            "expression": "SUM(fact_financial[total_credit])",
+            "formatString": "$#,##0.00",
+            "lineageTag": "318e072c-43e7-4c92-933c-3c2ac686c41f"
+          },
+          {
+            "name": "Net GL Movement",
+            "displayFolder": "04_Financial_GL",
+            "expression": "SUM(fact_financial[net_movement])",
+            "formatString": "$#,##0.00",
+            "lineageTag": "287f2fc0-face-446c-850c-8e2d8c638f12"
+          },
+          {
+            "name": "GL Variance (Debit - Credit)",
+            "displayFolder": "04_Financial_GL",
+            "expression": "ABS([Total Debits] - [Total Credits])",
+            "formatString": "$#,##0.00",
+            "lineageTag": "e3faddd5-5d69-43b8-adf5-a8dc923c8b80"
+          },
+          {
+            "name": "Total Interest Income Accrued",
+            "displayFolder": "04_Financial_GL",
+            "expression": "SUM(fact_loan_performance[accrued_interest])",
+            "formatString": "$#,##0.00",
+            "lineageTag": "3675ef91-8931-4f22-b281-d805d86fea47"
+          },
+          {
+            "name": "Net Interest Margin % (NIM)",
+            "displayFolder": "04_Financial_GL",
+            "expression": "DIVIDE([Total Interest Income Accrued] * 12, [Outstanding Principal], 0)",
+            "formatString": "0.00%",
+            "lineageTag": "47ef1b8e-a690-44dd-bf50-2a74de45efa0"
+          },
+          {
+            "name": "Total Defects",
+            "displayFolder": "05_QA_Defects",
+            "expression": "COUNTROWS(fact_defect)",
+            "formatString": "#,##0",
+            "lineageTag": "6d415edf-0236-4a55-953c-809cede70fe3"
+          },
+          {
+            "name": "Critical Defects",
+            "displayFolder": "05_QA_Defects",
+            "expression": [
+              "CALCULATE(",
+              "    [Total Defects],",
+              "    fact_defect[severity] = \"CRITICAL\"",
+              ")"
+            ],
+            "formatString": "#,##0",
+            "lineageTag": "404b6af2-0c5a-4f35-bf2b-4f2ad1651375"
+          },
+          {
+            "name": "Major Defects",
+            "displayFolder": "05_QA_Defects",
+            "expression": [
+              "CALCULATE(",
+              "    [Total Defects],",
+              "    fact_defect[severity] = \"MAJOR\"",
+              ")"
+            ],
+            "formatString": "#,##0",
+            "lineageTag": "5efcd42a-894b-41f8-b249-fc15606867b6"
+          },
+          {
+            "name": "Minor Defects",
+            "displayFolder": "05_QA_Defects",
+            "expression": [
+              "CALCULATE(",
+              "    [Total Defects],",
+              "    fact_defect[severity] = \"MINOR\"",
+              ")"
+            ],
+            "formatString": "#,##0",
+            "lineageTag": "b83ef7f8-7c07-46c8-a042-99ddaea27a99"
+          },
+          {
+            "name": "P1 Defects",
+            "displayFolder": "05_QA_Defects",
+            "expression": [
+              "CALCULATE(",
+              "    [Total Defects],",
+              "    fact_defect[priority] = \"P1\"",
+              ")"
+            ],
+            "formatString": "#,##0",
+            "lineageTag": "bca74bc9-4b75-4979-9d50-45f071ca7e92"
+          },
+          {
+            "name": "P2 Defects",
+            "displayFolder": "05_QA_Defects",
+            "expression": [
+              "CALCULATE(",
+              "    [Total Defects],",
+              "    fact_defect[priority] = \"P2\"",
+              ")"
+            ],
+            "formatString": "#,##0",
+            "lineageTag": "e5640efc-8b11-4a1d-8a3f-0bf07d3e0176"
+          },
+          {
+            "name": "P3 Defects",
+            "displayFolder": "05_QA_Defects",
+            "expression": [
+              "CALCULATE(",
+              "    [Total Defects],",
+              "    fact_defect[priority] = \"P3\"",
+              ")"
+            ],
+            "formatString": "#,##0",
+            "lineageTag": "d2284f58-fb31-4e73-bed0-4db7f26c9776"
+          },
+          {
+            "name": "Open Defects",
+            "displayFolder": "05_QA_Defects",
+            "expression": [
+              "CALCULATE(",
+              "    [Total Defects],",
+              "    NOT(fact_defect[status] IN {\"RESOLVED\", \"VERIFIED_CLOSED\"})",
+              ")"
+            ],
+            "formatString": "#,##0",
+            "lineageTag": "79573ae2-0294-45eb-8615-eed82af02d5b"
+          },
+          {
+            "name": "Resolved Defects",
+            "displayFolder": "05_QA_Defects",
+            "expression": [
+              "CALCULATE(",
+              "    [Total Defects],",
+              "    fact_defect[status] IN {\"RESOLVED\", \"VERIFIED_CLOSED\"}",
+              ")"
+            ],
+            "formatString": "#,##0",
+            "lineageTag": "bc550515-960e-4602-a3bb-dd6d4f13cba2"
+          },
+          {
+            "name": "Defect Resolution Rate %",
+            "displayFolder": "05_QA_Defects",
+            "expression": "DIVIDE([Resolved Defects], [Total Defects], 0)",
+            "formatString": "0.00%",
+            "lineageTag": "cd55b420-5476-4dbb-82f0-477366728729"
+          },
+          {
+            "name": "Servicing Operations",
+            "displayFolder": "05_QA_Defects",
+            "expression": "29741",
+            "formatString": "0.00%",
+            "lineageTag": "c58a7052-b5af-446a-b8e7-b85068a457b5"
+          },
+          {
+            "name": "Defect Density per 1k Ops",
+            "displayFolder": "05_QA_Defects",
+            "expression": "DIVIDE([Total Defects], [Servicing Operations], 0) * 1000",
+            "formatString": "#,##0",
+            "lineageTag": "97b9540e-2479-4bf6-9eb5-d6b75ddeaf3a"
+          },
+          {
+            "name": "Defect Injection Rate %",
+            "displayFolder": "05_QA_Defects",
+            "expression": "DIVIDE([Total Defects], [Servicing Operations], 0) * 100",
+            "formatString": "0.00%",
+            "lineageTag": "d65abade-37cc-4509-82fa-08b84edc8f7f"
+          },
+          {
+            "name": "Total Financial Variance Exposure",
+            "displayFolder": "05_QA_Defects",
+            "expression": "SUM(fact_defect[variance_amount])",
+            "formatString": "$#,##0.00",
+            "lineageTag": "22e180fb-93f8-4a5a-a96c-40dc549fd4e2"
+          },
+          {
+            "name": "Mean Time to Detect (MTTD Hours)",
+            "displayFolder": "05_QA_Defects",
+            "expression": "0.5",
+            "formatString": "0.0",
+            "lineageTag": "deae8fd1-df52-4a08-893c-2e4275f23142"
+          },
+          {
+            "name": "Mean Time to Resolve (MTTR Hours)",
+            "displayFolder": "05_QA_Defects",
+            "expression": "53.06",
+            "formatString": "0.0",
+            "lineageTag": "940e9090-02ab-46c6-b564-bba1d4e5e077"
+          },
+          {
+            "name": "Total DQ Rules Evaluated",
+            "displayFolder": "06_DataQuality_SRE",
+            "expression": "SUM(fact_data_quality[total_rules_evaluated])",
+            "formatString": "#,##0",
+            "lineageTag": "ab4f7820-dc44-415d-966a-5ee684bfc3ea"
+          },
+          {
+            "name": "DQ Rules Passed",
+            "displayFolder": "06_DataQuality_SRE",
+            "expression": "SUM(fact_data_quality[rules_passed])",
+            "formatString": "#,##0",
+            "lineageTag": "1807a571-59d1-418d-8479-d25da9c67422"
+          },
+          {
+            "name": "DQ Rules Failed",
+            "displayFolder": "06_DataQuality_SRE",
+            "expression": "SUM(fact_data_quality[rules_failed])",
+            "formatString": "#,##0",
+            "lineageTag": "6eea8ec4-d8e2-42f0-91d3-2143baa21663"
+          },
+          {
+            "name": "Overall DQ Compliance %",
+            "displayFolder": "06_DataQuality_SRE",
+            "expression": "DIVIDE([DQ Rules Passed], [Total DQ Rules Evaluated], 1.0) * 100",
+            "formatString": "0.00%",
+            "lineageTag": "e5027c07-c1ba-4e74-a09f-1bb01ba64b60"
+          },
+          {
+            "name": "Audited Records Count",
+            "displayFolder": "06_DataQuality_SRE",
+            "expression": "167175",
+            "formatString": "#,##0",
+            "lineageTag": "87467512-eb77-4f8b-978d-15770aa6f513"
+          },
+          {
+            "name": "Governance Audit Trail Events",
+            "displayFolder": "06_DataQuality_SRE",
+            "expression": "200",
+            "formatString": "#,##0",
+            "lineageTag": "a40930c4-ffea-4251-a5d8-8684e8c70c8c"
+          },
+          {
+            "name": "Outstanding Principal Prior Month",
+            "displayFolder": "07_Time_Intelligence",
+            "expression": [
+              "CALCULATE(",
+              "    [Outstanding Principal],",
+              "    DATEADD(dim_date[full_date], -1, MONTH)",
+              ")"
+            ],
+            "formatString": "$#,##0.00",
+            "lineageTag": "85c63ee9-549e-401e-9dfd-09c6be7ea04e"
+          },
+          {
+            "name": "Outstanding Principal MoM %",
+            "displayFolder": "07_Time_Intelligence",
+            "expression": [
+              "DIVIDE(",
+              "    [Outstanding Principal] - [Outstanding Principal Prior Month],",
+              "    [Outstanding Principal Prior Month],",
+              "    0",
+              ")"
+            ],
+            "formatString": "0.00%",
+            "lineageTag": "6e87010c-8bdc-46c7-8784-589bda8cc9d8"
+          },
+          {
+            "name": "Total Payments Prior Month",
+            "displayFolder": "07_Time_Intelligence",
+            "expression": [
+              "CALCULATE(",
+              "    [Total Payment Volume],",
+              "    DATEADD(dim_date[full_date], -1, MONTH)",
+              ")"
+            ],
+            "formatString": "#,##0",
+            "lineageTag": "8e542668-ca34-48dc-8209-a9cd712f9cf4"
+          },
+          {
+            "name": "Total Payments MoM Change",
+            "displayFolder": "07_Time_Intelligence",
+            "expression": "[Total Payment Volume] - [Total Payments Prior Month]",
+            "formatString": "#,##0",
+            "lineageTag": "d4e43cc3-ffcc-4ce6-b99c-8520db80efe8"
+          },
+          {
+            "name": "Baseline Portfolio 12M Forecast",
+            "displayFolder": "08_Forecast_Scenario",
+            "expression": "[Outstanding Principal] * POWER(1 + 0.005, 12)",
+            "formatString": "$#,##0.00",
+            "lineageTag": "87a938d2-cb9f-43d3-93eb-094c2ea5046d"
+          },
+          {
+            "name": "Stress Scenario 1 Balance (+200bps Fed Shock)",
+            "displayFolder": "08_Forecast_Scenario",
+            "expression": "[Outstanding Principal] * (1 - 0.04)",
+            "formatString": "$#,##0.00",
+            "lineageTag": "9eff8f7d-c1f0-4646-8e06-14c4f1ce2889"
+          },
+          {
+            "name": "Stress Scenario 2 Balance (Delinquency Spike 2x)",
+            "displayFolder": "08_Forecast_Scenario",
+            "expression": "[Delinquent Balance (30+ DPD)] * 2.0",
+            "formatString": "$#,##0.00",
+            "lineageTag": "0d420ba2-30c0-4c43-99c6-074882e669e0"
+          },
+          {
+            "name": "Stress Loss Exposure ($)",
+            "displayFolder": "08_Forecast_Scenario",
+            "expression": "[Stress Scenario 2 Balance (Delinquency Spike 2x)] * 0.45",
+            "formatString": "$#,##0.00",
+            "lineageTag": "818f4731-0c3f-464f-a1c1-d0b495e87096"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "_Measures",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = #table(type table [Measure = text], {{\"Measures\"}})",
+                "in",
+                "    Source"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "DateTableTemplate_3538e89c-b018-421f-a5b5-0626a93dd784",
+        "annotations": [
+          {
+            "name": "__PBI_TemplateDateTable",
+            "value": "true"
+          },
+          {
+            "name": "DefaultItem",
+            "value": "DateHierarchy"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "b1232fc7-8d97-435a-94e8-afee2211a3ea",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "6a1a1f41-05ee-44c3-9ac4-8a9c227e8026",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "be0795ec-366e-4456-9593-109024030fb6",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "690922be-4b4b-4b4b-99fb-4d6afbee2d3a",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "a7cceaba-b5b0-4306-a072-5c484c852d43",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "64ee0d50-d240-44e9-bf93-2d01f3ea72e1",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "3b714b33-43f2-4957-872d-1c3c01383043",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "ab1ad596-cf82-4179-a734-8e866619a86a",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "52c89336-0b52-4f10-9e4f-913a996f39f3",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "d9eff3a7-e9f7-4f6a-baed-0f855a8cadda",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "24d033d7-88ce-45eb-923a-284e30a4b1b9",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "683afbc8-b83e-4fcf-9b8c-f094bbd94585"
+          }
+        ],
+        "isHidden": true,
+        "isPrivate": true,
+        "lineageTag": "2579ca64-da78-496b-b904-024e99b0da7c",
+        "partitions": [
+          {
+            "name": "DateTableTemplate_3538e89c-b018-421f-a5b5-0626a93dd784",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(2015,1,1), Date(2015,1,1))",
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "LocalDateTable_7ce08bac-2cc5-414e-87f7-ca6dd0f9d479",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "948ff481-d1a2-48d1-9911-6f1d80e75235",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "6a90d131-3078-416f-971b-a69ff64bf653",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "dd4d129d-c615-4003-baa2-842d7135893e",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "29e05b41-e819-44df-b53d-2e20c952ad2b",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "21a87e53-2b05-46f3-8068-33a084a898d5",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "c0067fcf-1f45-4969-a77c-4cf5ca6bcf19",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "d20778d5-6286-4c9e-a421-2c75b4ef54a1",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "85906c16-437d-49c1-8aac-5aaad92b7052",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "7f6a9f51-cb1a-4787-8181-78c814c2f094",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "33f2ff49-407d-4195-be2c-413899c1e094",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "e360d4ae-71ce-4db3-88e6-061d30dd2999",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "079f5449-5516-48fa-a110-0f47821f0177"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "3c722339-bbbb-4afd-8b72-b5ad10520a9c",
+        "partitions": [
+          {
+            "name": "LocalDateTable_7ce08bac-2cc5-414e-87f7-ca6dd0f9d479",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('dim_date'[full_date])), 1, 1), Date(Year(MAX('dim_date'[full_date])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
+      },
+      {
+        "name": "LocalDateTable_5dac1216-991e-489e-94c1-dc0b5ab8dcd7",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "fa79e5b1-436a-4d3d-947c-4b5587c09943",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "8c941df0-c9d9-42b5-a79d-3fae115423e7",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "939c0e00-4b50-4667-a07f-925014e5f9a7",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "54522c4d-d81d-4ecc-8f21-48e143b40072",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "0ad96cc9-490e-45d3-9943-c01ba2afc511",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "55c89221-cb3f-43b3-8d5a-3b6bc6768109",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "ccd2ecfb-9baf-45bb-9913-62b4b97e0b68",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "869ed447-794b-4f9e-82fa-3a3719312f83",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "f662ea72-f2c7-48ba-9467-01eb1719108e",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "d78e45a9-9628-43fb-a3d3-c66809def2a4",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "1f4bc7fd-fd7f-4908-9a3e-94127fb8250f",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "cab31882-9b5d-4c4c-a7f3-8a1bbe6d763c"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "96409bf0-9d6c-4993-8c5c-60dccf126f44",
+        "partitions": [
+          {
+            "name": "LocalDateTable_5dac1216-991e-489e-94c1-dc0b5ab8dcd7",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('dim_loan'[start_date])), 1, 1), Date(Year(MAX('dim_loan'[start_date])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
+      },
+      {
+        "name": "LocalDateTable_5016d720-f49f-4b96-82f5-86b27694e9c3",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "bfbe1b20-96e5-4d20-ab69-9f52745bca0d",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "54fbfed3-515b-452c-a0f9-0a9648cbc129",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "2c302a5f-20fc-41c4-af35-44420ec6cf6d",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "5013ca99-d392-4bd1-8013-fbb21a231a0c",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "4ced64a2-f7a0-4ef6-bcd7-5f7112bebf67",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "bb07e2cf-c863-43c9-819d-b9e4b844ecdb",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "ade29855-a8cf-4dc5-b060-7290c0ce82ab",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "56bae4f6-5de6-4274-b694-5650e91f3449",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "fb2fe0f5-ee22-4479-a800-d41bf344378b",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "31dd680f-35e0-4ec2-8ce2-5124805b64db",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "a2bf7ea9-befb-4363-af1e-eec83817bb53",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "336d5795-b1c8-4588-8f8a-c8303a268c24"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "cedf0e7e-b2f0-487f-89b2-04c5ef8e9272",
+        "partitions": [
+          {
+            "name": "LocalDateTable_5016d720-f49f-4b96-82f5-86b27694e9c3",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('dim_loan'[maturity_date])), 1, 1), Date(Year(MAX('dim_loan'[maturity_date])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
+      }
+    ]
+  }
+}

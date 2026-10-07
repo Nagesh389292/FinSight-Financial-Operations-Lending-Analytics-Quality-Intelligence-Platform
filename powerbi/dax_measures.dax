@@ -1,0 +1,251 @@
+// ===============================================================================
+// FinSight Enterprise — Production DAX Measure Library (Phase 4.2)
+// Organized by Display Folder for Power BI Semantic Model
+// ===============================================================================
+
+// -------------------------------------------------------------------------------
+// FOLDER: 01_Portfolio_Lending
+// -------------------------------------------------------------------------------
+
+[Total Loans] = 
+DISTINCTCOUNT(dim_loan[loan_id])
+
+[Original Principal] = 
+SUM(dim_loan[original_principal])
+
+[Outstanding Principal] = 
+SUM(fact_loan_performance[outstanding_principal])
+
+[Average Facility Size] = 
+DIVIDE([Outstanding Principal], [Total Loans], 0)
+
+[Active Loans] = 
+CALCULATE(
+    [Total Loans],
+    fact_loan_performance[status] = "ACTIVE"
+)
+
+[Weighted Average Rate (WAR)] = 
+DIVIDE(
+    SUMX(dim_loan, dim_loan[original_principal] * dim_loan[annual_interest_rate]),
+    [Original Principal],
+    0
+)
+
+// -------------------------------------------------------------------------------
+// FOLDER: 02_Payments_CashFlow
+// -------------------------------------------------------------------------------
+
+[Total Payment Volume] = 
+SUM(fact_payment[payment_amount])
+
+[Principal Collected] = 
+SUM(fact_payment[principal_applied])
+
+[Interest Collected] = 
+SUM(fact_payment[interest_applied])
+
+[Fees Collected] = 
+SUM(fact_payment[fees_applied])
+
+[Prepayments Collected] = 
+SUM(fact_payment[prepayment_applied])
+
+[Total Scheduled Due] = 
+SUM(fact_loan_performance[total_due])
+
+[Collection Efficiency %] = 
+DIVIDE([Total Payment Volume], [Total Scheduled Due], 0)
+
+// -------------------------------------------------------------------------------
+// FOLDER: 03_Delinquency_Risk
+// -------------------------------------------------------------------------------
+
+[Delinquent Balance (30+ DPD)] = 
+CALCULATE(
+    [Outstanding Principal],
+    fact_loan_performance[is_delinquent_30_plus] = TRUE()
+)
+
+[Default Balance (90+ DPD)] = 
+CALCULATE(
+    [Outstanding Principal],
+    fact_loan_performance[is_default_90_plus] = TRUE()
+)
+
+[Delinquency Rate (30+ DPD)] = 
+DIVIDE([Delinquent Balance (30+ DPD)], [Outstanding Principal], 0)
+
+[Default Rate (90+ DPD)] = 
+DIVIDE([Default Balance (90+ DPD)], [Outstanding Principal], 0)
+
+[Current Performing Balance] = 
+CALCULATE(
+    [Outstanding Principal],
+    fact_loan_performance[days_past_due] < 30
+)
+
+[Current Performing Rate %] = 
+DIVIDE([Current Performing Balance], [Outstanding Principal], 0)
+
+// -------------------------------------------------------------------------------
+// FOLDER: 04_Financial_GL
+// -------------------------------------------------------------------------------
+
+[Total Debits] = 
+SUM(fact_financial[total_debit])
+
+[Total Credits] = 
+SUM(fact_financial[total_credit])
+
+[Net GL Movement] = 
+SUM(fact_financial[net_movement])
+
+[GL Variance (Debit - Credit)] = 
+ABS([Total Debits] - [Total Credits])
+
+[Total Interest Income Accrued] = 
+SUM(fact_loan_performance[accrued_interest])
+
+[Net Interest Margin % (NIM)] = 
+DIVIDE([Total Interest Income Accrued] * 12, [Outstanding Principal], 0)
+
+// -------------------------------------------------------------------------------
+// FOLDER: 05_QA_Defects
+// -------------------------------------------------------------------------------
+
+[Total Defects] = 
+COUNTROWS(fact_defect)
+
+[Critical Defects] = 
+CALCULATE(
+    [Total Defects],
+    fact_defect[severity] = "CRITICAL"
+)
+
+[Major Defects] = 
+CALCULATE(
+    [Total Defects],
+    fact_defect[severity] = "MAJOR"
+)
+
+[Minor Defects] = 
+CALCULATE(
+    [Total Defects],
+    fact_defect[severity] = "MINOR"
+)
+
+[P1 Defects] = 
+CALCULATE(
+    [Total Defects],
+    fact_defect[priority] = "P1"
+)
+
+[P2 Defects] = 
+CALCULATE(
+    [Total Defects],
+    fact_defect[priority] = "P2"
+)
+
+[P3 Defects] = 
+CALCULATE(
+    [Total Defects],
+    fact_defect[priority] = "P3"
+)
+
+[Open Defects] = 
+CALCULATE(
+    [Total Defects],
+    NOT(fact_defect[status] IN {"RESOLVED", "VERIFIED_CLOSED"})
+)
+
+[Resolved Defects] = 
+CALCULATE(
+    [Total Defects],
+    fact_defect[status] IN {"RESOLVED", "VERIFIED_CLOSED"}
+)
+
+[Defect Resolution Rate %] = 
+DIVIDE([Resolved Defects], [Total Defects], 0)
+
+[Servicing Operations] = 
+29741
+
+[Defect Density per 1k Ops] = 
+DIVIDE([Total Defects], [Servicing Operations], 0) * 1000
+
+[Defect Injection Rate %] = 
+DIVIDE([Total Defects], [Servicing Operations], 0) * 100
+
+[Total Financial Variance Exposure] = 
+SUM(fact_defect[variance_amount])
+
+[Mean Time to Detect (MTTD Hours)] = 
+0.5
+
+[Mean Time to Resolve (MTTR Hours)] = 
+53.06
+
+// -------------------------------------------------------------------------------
+// FOLDER: 06_DataQuality_SRE
+// -------------------------------------------------------------------------------
+
+[Total DQ Rules Evaluated] = 
+SUM(fact_data_quality[total_rules_evaluated])
+
+[DQ Rules Passed] = 
+SUM(fact_data_quality[rules_passed])
+
+[DQ Rules Failed] = 
+SUM(fact_data_quality[rules_failed])
+
+[Overall DQ Compliance %] = 
+DIVIDE([DQ Rules Passed], [Total DQ Rules Evaluated], 1.0) * 100
+
+[Audited Records Count] = 
+167175
+
+[Governance Audit Trail Events] = 
+200
+
+// -------------------------------------------------------------------------------
+// FOLDER: 07_Time_Intelligence
+// -------------------------------------------------------------------------------
+
+[Outstanding Principal Prior Month] = 
+CALCULATE(
+    [Outstanding Principal],
+    DATEADD(dim_date[full_date], -1, MONTH)
+)
+
+[Outstanding Principal MoM %] = 
+DIVIDE(
+    [Outstanding Principal] - [Outstanding Principal Prior Month],
+    [Outstanding Principal Prior Month],
+    0
+)
+
+[Total Payments Prior Month] = 
+CALCULATE(
+    [Total Payment Volume],
+    DATEADD(dim_date[full_date], -1, MONTH)
+)
+
+[Total Payments MoM Change] = 
+[Total Payment Volume] - [Total Payments Prior Month]
+
+// -------------------------------------------------------------------------------
+// FOLDER: 08_Forecast_Scenario
+// -------------------------------------------------------------------------------
+
+[Baseline Portfolio 12M Forecast] = 
+[Outstanding Principal] * POWER(1 + 0.005, 12)
+
+[Stress Scenario 1 Balance (+200bps Fed Shock)] = 
+[Outstanding Principal] * (1 - 0.04)
+
+[Stress Scenario 2 Balance (Delinquency Spike 2x)] = 
+[Delinquent Balance (30+ DPD)] * 2.0
+
+[Stress Loss Exposure ($)] = 
+[Stress Scenario 2 Balance (Delinquency Spike 2x)] * 0.45

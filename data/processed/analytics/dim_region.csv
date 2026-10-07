@@ -1,0 +1,5 @@
+region_key,region_id,region_name,headquarters_city,regional_director
+1,REG-NE,Northeast Region,"Boston, MA",Eleanor Vance - SVP Regional Banking
+2,REG-MW,Midwest Region,"Chicago, IL",Marcus Sterling - SVP Regional Banking
+3,REG-SO,Southern Region,"Atlanta, GA",Diana Caldwell - SVP Regional Banking
+4,REG-WE,Western Region,"Seattle, WA",Robert Chen - SVP Regional Banking

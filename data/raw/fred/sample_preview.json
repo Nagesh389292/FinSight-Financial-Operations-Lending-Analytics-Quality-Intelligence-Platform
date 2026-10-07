@@ -1,0 +1,11 @@
+{
+  "sample_date": "2026-10-06",
+  "latest_observations": {
+    "SOFR": 3.89,
+    "FEDFUNDS": 3.75,
+    "DGS10": 5.28,
+    "CPIAUCNS": 334.98,
+    "UNRATE": 4.2,
+    "DPRIME": 7.0
+  }
+}

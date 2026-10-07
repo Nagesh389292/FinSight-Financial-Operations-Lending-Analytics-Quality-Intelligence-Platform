@@ -1,0 +1,23 @@
+{
+  "audit_timestamp": "2026-10-06T00:00:00+00:00",
+  "total_rules_evaluated": 22,
+  "rules_passed": 22,
+  "rules_failed": 0,
+  "overall_compliance_pct": 100.0,
+  "total_records_audited": 167175,
+  "rules_by_category": {
+    "COMPLETENESS": {
+      "PASSED": 4
+    },
+    "REFERENTIAL_INTEGRITY": {
+      "PASSED": 5
+    },
+    "UNIQUENESS": {
+      "PASSED": 5
+    },
+    "VALIDITY": {
+      "PASSED": 8
+    }
+  },
+  "status": "PASSED"
+}

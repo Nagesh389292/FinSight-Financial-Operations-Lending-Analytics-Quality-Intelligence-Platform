@@ -1,0 +1,37 @@
+{
+  "analysis_timestamp": "2026-10-06T00:00:00+00:00",
+  "total_defects": 600,
+  "total_servicing_operations": 29741,
+  "defect_density_per_1000_operations": 20.17,
+  "severity_distribution": {
+    "MAJOR": 300,
+    "MINOR": 150,
+    "CRITICAL": 150
+  },
+  "priority_distribution": {
+    "P2": 300,
+    "P3": 150,
+    "P1": 150
+  },
+  "status_distribution": {
+    "VERIFIED_CLOSED": 218,
+    "RESOLVED": 167,
+    "IN_INVESTIGATION": 134,
+    "TRIAGED": 57,
+    "NEW": 24
+  },
+  "root_cause_distribution": {
+    "DAY_COUNT_MISMATCH": 150,
+    "LEAP_YEAR_BLINDNESS": 150,
+    "ROUNDING_TRUNCATION": 150,
+    "WATERFALL_ORDERING": 150
+  },
+  "aging_bracket_distribution": {
+    "0-7 Days": 551,
+    "8-14 Days": 49
+  },
+  "mean_time_to_detect_hours": 0.5,
+  "mean_time_to_resolve_hours": 53.06,
+  "total_financial_variance_usd": 901738.5,
+  "max_single_variance_usd": 48466.71
+}

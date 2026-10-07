@@ -1,0 +1,5 @@
+run_id,date_key,test_category,total_tests_executed,tests_passed,tests_failed,tests_skipped,pass_rate_pct,execution_duration_sec,qa_fact_key
+RUN-CERT-2024-Q1,20240331,FINANCIAL_CALC,12,12,0,0,100.0,14.2,1
+RUN-CERT-2024-Q2,20240630,FUNCTIONAL,12,12,0,0,100.0,15.1,2
+RUN-CERT-2024-Q3,20240930,RECONCILIATION,12,12,0,0,100.0,18.45,3
+RUN-DEFECT-INJ-001,20261006,RECONCILIATION,12,8,4,0,66.67,24.16,4

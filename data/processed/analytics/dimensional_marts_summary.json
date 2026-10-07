@@ -1,0 +1,166 @@
+{
+  "dim_date": {
+    "record_count": 3288,
+    "column_count": 14,
+    "columns": [
+      "full_date",
+      "date_key",
+      "calendar_year",
+      "calendar_quarter",
+      "quarter_name",
+      "month_number",
+      "month_name",
+      "month_short",
+      "year_month",
+      "day_of_month",
+      "day_of_week",
+      "day_name",
+      "is_weekend",
+      "is_month_end"
+    ]
+  },
+  "dim_customer": {
+    "record_count": 2500,
+    "column_count": 9,
+    "columns": [
+      "customer_key",
+      "customer_id",
+      "legal_name",
+      "customer_type",
+      "region",
+      "segment",
+      "risk_category",
+      "credit_score",
+      "credit_tier"
+    ]
+  },
+  "dim_product": {
+    "record_count": 5,
+    "column_count": 8,
+    "columns": [
+      "product_key",
+      "product_code",
+      "product_name",
+      "product_family",
+      "rate_type",
+      "interest_method",
+      "default_amortization",
+      "benchmark_index"
+    ]
+  },
+  "dim_loan": {
+    "record_count": 2500,
+    "column_count": 11,
+    "columns": [
+      "loan_key",
+      "loan_id",
+      "customer_id",
+      "product_code",
+      "start_date",
+      "maturity_date",
+      "original_principal",
+      "annual_interest_rate",
+      "term_months",
+      "rate_type",
+      "interest_method"
+    ]
+  },
+  "fact_loan_performance": {
+    "record_count": 15000,
+    "column_count": 16,
+    "columns": [
+      "performance_key",
+      "date_key",
+      "customer_key",
+      "product_key",
+      "loan_key",
+      "loan_id",
+      "status",
+      "servicing_status",
+      "outstanding_principal",
+      "scheduled_principal",
+      "accrued_interest",
+      "fees_due",
+      "total_due",
+      "days_past_due",
+      "is_delinquent_30_plus",
+      "is_default_90_plus"
+    ]
+  },
+  "fact_payment": {
+    "record_count": 14741,
+    "column_count": 12,
+    "columns": [
+      "payment_key",
+      "date_key",
+      "customer_key",
+      "product_key",
+      "loan_key",
+      "payment_id",
+      "payment_amount",
+      "principal_applied",
+      "interest_applied",
+      "fees_applied",
+      "prepayment_applied",
+      "closing_principal_balance"
+    ]
+  },
+  "fact_financial": {
+    "record_count": 4984,
+    "column_count": 8,
+    "columns": [
+      "financial_key",
+      "date_key",
+      "product_key",
+      "gl_account_code",
+      "total_debit",
+      "total_credit",
+      "net_movement",
+      "ending_balance"
+    ]
+  },
+  "fact_test_execution": {
+    "record_count": 4,
+    "column_count": 10,
+    "columns": [
+      "run_id",
+      "date_key",
+      "test_category",
+      "total_tests_executed",
+      "tests_passed",
+      "tests_failed",
+      "tests_skipped",
+      "pass_rate_pct",
+      "execution_duration_sec",
+      "qa_fact_key"
+    ]
+  },
+  "fact_defect": {
+    "record_count": 600,
+    "column_count": 9,
+    "columns": [
+      "defect_key",
+      "date_key",
+      "defect_id",
+      "severity",
+      "priority",
+      "status",
+      "root_cause_category",
+      "variance_amount",
+      "days_open"
+    ]
+  },
+  "fact_data_quality": {
+    "record_count": 4,
+    "column_count": 7,
+    "columns": [
+      "dq_fact_key",
+      "date_key",
+      "check_category",
+      "total_rules_evaluated",
+      "rules_passed",
+      "rules_failed",
+      "overall_compliance_pct"
+    ]
+  }
+}

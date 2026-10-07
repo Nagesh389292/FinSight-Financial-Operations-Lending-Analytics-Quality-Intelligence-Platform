@@ -1,0 +1,20 @@
+{
+  "simulation_timestamp": "2026-10-06T00:00:00+00:00",
+  "random_seed": 20261006,
+  "facilities_serviced": 2500,
+  "simulation_cycles": 6,
+  "total_scheduled_periods": 15000,
+  "total_accrual_entries": 15000,
+  "total_payments_executed": 14741,
+  "total_payment_volume_usd": 351574751.19,
+  "total_principal_collected_usd": 214989321.57,
+  "total_interest_collected_usd": 135101426.82,
+  "total_fees_collected_usd": 1484002.8,
+  "gl_total_debit_usd": 491300436.35,
+  "gl_total_credit_usd": 491300436.35,
+  "gl_balanced": true,
+  "reconciliation_checks_total": 29742,
+  "reconciliation_pass_rate_pct": 100.0,
+  "intentional_defects_injected": 0,
+  "status": "PASSED"
+}

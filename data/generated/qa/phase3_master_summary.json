@@ -1,0 +1,96 @@
+{
+  "pipeline": "FinSight Enterprise \u2014 Phase 3 Operationalization & Governance",
+  "timestamp": "2026-10-06T00:00:00+00:00",
+  "random_seed": 20261006,
+  "rtm_summary": {
+    "evaluation_timestamp": "2026-10-06T00:00:00+00:00",
+    "total_brd_requirements": 17,
+    "covered_requirements": 4,
+    "requirement_coverage_pct": 23.53,
+    "total_business_rules": 6,
+    "total_test_cases": 12,
+    "automated_test_cases": 12,
+    "test_automation_rate_pct": 100.0,
+    "passing_test_cases": 9,
+    "failing_test_cases": 3,
+    "test_pass_rate_pct": 75.0,
+    "total_defects_linked": 600,
+    "defects_by_requirement": {
+      "BRD-CORE-006": 150,
+      "BRD-CORE-007": 0,
+      "BRD-FIN-001": 450,
+      "BRD-FIN-005": 0
+    },
+    "defects_by_severity": {
+      "CRITICAL": 150,
+      "MAJOR": 300,
+      "MINOR": 150
+    }
+  },
+  "data_quality_summary": {
+    "audit_timestamp": "2026-10-06T00:00:00+00:00",
+    "total_rules_evaluated": 22,
+    "rules_passed": 22,
+    "rules_failed": 0,
+    "overall_compliance_pct": 100.0,
+    "total_records_audited": 167175,
+    "rules_by_category": {
+      "COMPLETENESS": {
+        "PASSED": 4
+      },
+      "REFERENTIAL_INTEGRITY": {
+        "PASSED": 5
+      },
+      "UNIQUENESS": {
+        "PASSED": 5
+      },
+      "VALIDITY": {
+        "PASSED": 8
+      }
+    },
+    "status": "PASSED"
+  },
+  "defect_analytics_summary": {
+    "analysis_timestamp": "2026-10-06T00:00:00+00:00",
+    "total_defects": 600,
+    "total_servicing_operations": 29741,
+    "defect_density_per_1000_operations": 20.17,
+    "severity_distribution": {
+      "MAJOR": 300,
+      "MINOR": 150,
+      "CRITICAL": 150
+    },
+    "priority_distribution": {
+      "P2": 300,
+      "P3": 150,
+      "P1": 150
+    },
+    "status_distribution": {
+      "VERIFIED_CLOSED": 218,
+      "RESOLVED": 167,
+      "IN_INVESTIGATION": 134,
+      "TRIAGED": 57,
+      "NEW": 24
+    },
+    "root_cause_distribution": {
+      "DAY_COUNT_MISMATCH": 150,
+      "LEAP_YEAR_BLINDNESS": 150,
+      "ROUNDING_TRUNCATION": 150,
+      "WATERFALL_ORDERING": 150
+    },
+    "aging_bracket_distribution": {
+      "0-7 Days": 551,
+      "8-14 Days": 49
+    },
+    "mean_time_to_detect_hours": 0.5,
+    "mean_time_to_resolve_hours": 53.06,
+    "total_financial_variance_usd": 901738.5,
+    "max_single_variance_usd": 48466.71
+  },
+  "governance_summary": {
+    "total_governed_entities": 7,
+    "audit_records_count": 200,
+    "hashing_algorithm": "SHA-256"
+  },
+  "phase3_status": "COMPLETED_SUCCESSFULLY"
+}

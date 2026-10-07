@@ -1,0 +1,300 @@
+{
+  "validation_engine": "FinSight Enterprise DAX Measure Verification",
+  "total_measures_audited": 29,
+  "measures_passed": 29,
+  "measures_failed": 0,
+  "pass_rate_pct": 100.0,
+  "status": "ALL_MEASURES_PASSED",
+  "measure_results": [
+    {
+      "measure_name": "Total Loans",
+      "folder": "01_Portfolio_Lending",
+      "dax_formula": "DISTINCTCOUNT(dim_loan[loan_id])",
+      "expected_control_value": 2500.0,
+      "computed_gold_value": 2500.0,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "#"
+    },
+    {
+      "measure_name": "Original Principal",
+      "folder": "01_Portfolio_Lending",
+      "dax_formula": "SUM(dim_loan[original_principal])",
+      "expected_control_value": 4083242991.87,
+      "computed_gold_value": 4083242991.87,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "$"
+    },
+    {
+      "measure_name": "Closing Outstanding Principal",
+      "folder": "01_Portfolio_Lending",
+      "dax_formula": "SUM(fact_loan_performance[outstanding_principal])",
+      "expected_control_value": 3902427287.56,
+      "computed_gold_value": 3902427287.56,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "$"
+    },
+    {
+      "measure_name": "Active Loans",
+      "folder": "01_Portfolio_Lending",
+      "dax_formula": "CALCULATE([Total Loans], status = 'ACTIVE')",
+      "expected_control_value": 2395.0,
+      "computed_gold_value": 2395.0,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "#"
+    },
+    {
+      "measure_name": "Average Facility Size",
+      "folder": "01_Portfolio_Lending",
+      "dax_formula": "DIVIDE([Outstanding Principal], [Total Loans])",
+      "expected_control_value": 1560970.92,
+      "computed_gold_value": 1560970.915,
+      "variance": 0.005,
+      "status": "PASS",
+      "unit": "$"
+    },
+    {
+      "measure_name": "Weighted Average Rate (WAR)",
+      "folder": "01_Portfolio_Lending",
+      "dax_formula": "DIVIDE(SUMX(dim_loan, P * R), [Original Principal])",
+      "expected_control_value": 6.86,
+      "computed_gold_value": 6.8648,
+      "variance": 0.0048,
+      "status": "PASS",
+      "unit": "%"
+    },
+    {
+      "measure_name": "Total Payment Volume",
+      "folder": "02_Payments_CashFlow",
+      "dax_formula": "SUM(fact_payment[payment_amount])",
+      "expected_control_value": 351574751.19,
+      "computed_gold_value": 351574751.19,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "$"
+    },
+    {
+      "measure_name": "Principal Collected",
+      "folder": "02_Payments_CashFlow",
+      "dax_formula": "SUM(fact_payment[principal_applied])",
+      "expected_control_value": 211429149.52,
+      "computed_gold_value": 211429149.52,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "$"
+    },
+    {
+      "measure_name": "Interest Collected",
+      "folder": "02_Payments_CashFlow",
+      "dax_formula": "SUM(fact_payment[interest_applied])",
+      "expected_control_value": 135101426.82,
+      "computed_gold_value": 135101426.82,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "$"
+    },
+    {
+      "measure_name": "Fees Collected",
+      "folder": "02_Payments_CashFlow",
+      "dax_formula": "SUM(fact_payment[fees_applied])",
+      "expected_control_value": 1484002.8,
+      "computed_gold_value": 1484002.8,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "$"
+    },
+    {
+      "measure_name": "Prepayments Collected",
+      "folder": "02_Payments_CashFlow",
+      "dax_formula": "SUM(fact_payment[prepayment_applied])",
+      "expected_control_value": 3560172.05,
+      "computed_gold_value": 3560172.05,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "$"
+    },
+    {
+      "measure_name": "Payment Cash Conservation",
+      "folder": "02_Payments_CashFlow",
+      "dax_formula": "Allocated Cash == Principal + Interest + Fees + Prepayment",
+      "expected_control_value": 0.0,
+      "computed_gold_value": 0.0,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "$"
+    },
+    {
+      "measure_name": "Delinquent Balance (30+ DPD)",
+      "folder": "03_Delinquency_Risk",
+      "dax_formula": "CALCULATE([Outstanding Principal], is_delinquent_30_plus)",
+      "expected_control_value": 143707050.71,
+      "computed_gold_value": 143707050.71,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "$"
+    },
+    {
+      "measure_name": "Delinquency Rate % (PAR 30)",
+      "folder": "03_Delinquency_Risk",
+      "dax_formula": "DIVIDE([Delinquent Balance 30+], [Outstanding Principal])",
+      "expected_control_value": 3.68,
+      "computed_gold_value": 3.6825,
+      "variance": 0.0025,
+      "status": "PASS",
+      "unit": "%"
+    },
+    {
+      "measure_name": "Current Performing Balance",
+      "folder": "03_Delinquency_Risk",
+      "dax_formula": "CALCULATE([Outstanding Principal], DPD < 30)",
+      "expected_control_value": 3758720236.85,
+      "computed_gold_value": 3758720236.85,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "$"
+    },
+    {
+      "measure_name": "Current Performing Rate %",
+      "folder": "03_Delinquency_Risk",
+      "dax_formula": "DIVIDE([Current Performing Balance], [Outstanding Principal])",
+      "expected_control_value": 96.32,
+      "computed_gold_value": 96.3175,
+      "variance": 0.0025,
+      "status": "PASS",
+      "unit": "%"
+    },
+    {
+      "measure_name": "Total Debits",
+      "folder": "04_Financial_GL",
+      "dax_formula": "SUM(fact_financial[total_debit])",
+      "expected_control_value": 491300436.35,
+      "computed_gold_value": 491300436.35,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "$"
+    },
+    {
+      "measure_name": "Total Credits",
+      "folder": "04_Financial_GL",
+      "dax_formula": "SUM(fact_financial[total_credit])",
+      "expected_control_value": 491300436.35,
+      "computed_gold_value": 491300436.35,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "$"
+    },
+    {
+      "measure_name": "GL Debit-Credit Variance",
+      "folder": "04_Financial_GL",
+      "dax_formula": "ABS([Total Debits] - [Total Credits])",
+      "expected_control_value": 0.0,
+      "computed_gold_value": 0.0,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "$"
+    },
+    {
+      "measure_name": "Total Defects",
+      "folder": "05_QA_Defects",
+      "dax_formula": "COUNTROWS(fact_defect)",
+      "expected_control_value": 600.0,
+      "computed_gold_value": 600.0,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "#"
+    },
+    {
+      "measure_name": "Critical Defects",
+      "folder": "05_QA_Defects",
+      "dax_formula": "CALCULATE([Total Defects], severity = 'CRITICAL')",
+      "expected_control_value": 150.0,
+      "computed_gold_value": 150.0,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "#"
+    },
+    {
+      "measure_name": "Major Defects",
+      "folder": "05_QA_Defects",
+      "dax_formula": "CALCULATE([Total Defects], severity = 'MAJOR')",
+      "expected_control_value": 300.0,
+      "computed_gold_value": 300.0,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "#"
+    },
+    {
+      "measure_name": "Minor Defects",
+      "folder": "05_QA_Defects",
+      "dax_formula": "CALCULATE([Total Defects], severity = 'MINOR')",
+      "expected_control_value": 150.0,
+      "computed_gold_value": 150.0,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "#"
+    },
+    {
+      "measure_name": "Defect Density per 1k Ops",
+      "folder": "05_QA_Defects",
+      "dax_formula": "DIVIDE([Total Defects], [Servicing Operations]) * 1000",
+      "expected_control_value": 20.17,
+      "computed_gold_value": 20.1742,
+      "variance": 0.0042,
+      "status": "PASS",
+      "unit": "#"
+    },
+    {
+      "measure_name": "Defect Injection Rate %",
+      "folder": "05_QA_Defects",
+      "dax_formula": "DIVIDE([Total Defects], [Servicing Operations]) * 100",
+      "expected_control_value": 2.02,
+      "computed_gold_value": 2.0174,
+      "variance": 0.0026,
+      "status": "PASS",
+      "unit": "%"
+    },
+    {
+      "measure_name": "Financial Variance Exposure",
+      "folder": "05_QA_Defects",
+      "dax_formula": "SUM(fact_defect[variance_amount])",
+      "expected_control_value": 901738.5,
+      "computed_gold_value": 901738.5,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "$"
+    },
+    {
+      "measure_name": "Total DQ Rules Evaluated",
+      "folder": "06_DataQuality_SRE",
+      "dax_formula": "SUM(fact_data_quality[total_rules_evaluated])",
+      "expected_control_value": 22.0,
+      "computed_gold_value": 22.0,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "#"
+    },
+    {
+      "measure_name": "DQ Rules Passed",
+      "folder": "06_DataQuality_SRE",
+      "dax_formula": "SUM(fact_data_quality[rules_passed])",
+      "expected_control_value": 22.0,
+      "computed_gold_value": 22.0,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "#"
+    },
+    {
+      "measure_name": "Overall DQ Compliance %",
+      "folder": "06_DataQuality_SRE",
+      "dax_formula": "DIVIDE([DQ Rules Passed], [Total DQ Rules]) * 100",
+      "expected_control_value": 100.0,
+      "computed_gold_value": 100.0,
+      "variance": 0.0,
+      "status": "PASS",
+      "unit": "%"
+    }
+  ]
+}

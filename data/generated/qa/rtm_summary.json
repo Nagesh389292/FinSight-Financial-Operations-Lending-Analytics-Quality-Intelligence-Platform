@@ -1,0 +1,25 @@
+{
+  "evaluation_timestamp": "2026-10-06T00:00:00+00:00",
+  "total_brd_requirements": 17,
+  "covered_requirements": 4,
+  "requirement_coverage_pct": 23.53,
+  "total_business_rules": 6,
+  "total_test_cases": 12,
+  "automated_test_cases": 12,
+  "test_automation_rate_pct": 100.0,
+  "passing_test_cases": 9,
+  "failing_test_cases": 3,
+  "test_pass_rate_pct": 75.0,
+  "total_defects_linked": 600,
+  "defects_by_requirement": {
+    "BRD-CORE-006": 150,
+    "BRD-CORE-007": 0,
+    "BRD-FIN-001": 450,
+    "BRD-FIN-005": 0
+  },
+  "defects_by_severity": {
+    "CRITICAL": 150,
+    "MAJOR": 300,
+    "MINOR": 150
+  }
+}
