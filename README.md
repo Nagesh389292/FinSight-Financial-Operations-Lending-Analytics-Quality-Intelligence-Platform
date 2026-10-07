@@ -255,30 +255,6 @@ Open the project directly in Power BI Desktop by double-clicking:
 
 ---
 
-## 💼 Interview Defense & Professional Portfolio Story
-
-When presenting this project in technical interviews, use this **60-to-90 second architectural summary**:
-
-> *"FinSight is an automated financial operations and lending analytics platform I engineered to simulate commercial and consumer loan lifecycles using real macroeconomic data and deterministic synthetic loan portfolios on Microsoft Azure. 
-> 
-> The pipeline ingests live Federal Reserve FRED benchmarks, drives a servicing engine across 2,500 facilities with exact day-count accruals, allocates payments through a multi-tier waterfall, and balances double-entry accounting ledgers to a verified $0.00 General Ledger variance.
-> 
-> To test the system's audit capabilities, I designed a QA layer that injected 600 controlled defects and audited 22 data quality rules across 167,000 records. For reporting, I developed an automated generator that writes native Microsoft Fabric PBIP project files, building a Kimball star schema with 55 DAX measures powering a 6-page executive Power BI dashboard.
-> 
-> The entire platform is validated through 60 automated Pytest test cases, reconciling 28 authoritative control totals with zero discrepancy."*
-
-### Key Interview Questions & Defensible Answers
-
-| Question | Technical Response |
-|---|---|
-| **"How does Microsoft Azure fit into FinSight?"** | *"FinSight uses Azure Cloud PaaS services: ADLS Gen2 provides multi-tier Lakehouse storage (Bronze raw, Silver curated, Gold Parquet marts), Azure Data Factory orchestrates scheduled ELT batch ingestion, Azure Key Vault protects API credentials, and Microsoft Entra ID provides RBAC. The Power BI reporting layer connects directly to the Tabular model on Fabric."* |
-| **"Why is your loan data synthetic?"** | *"Real bank customer loan records and credit bureau files are confidential under GLBA and banking privacy regulations. By generating synthetic loan facilities under documented parametric banking distributions, I could freely model complex servicing events, DPD transitions, and controlled defects while maintaining 100% mathematical realism."* |
-| **"How did you prevent General Ledger imbalances?"** | *"Every servicing transaction (payment, fee, charge-off) triggers synchronized double-entry journal entries via our accounting engine. Debits and credits are validated at ingestion and tested via automated reconciliation scripts, proving that $\sum \text{Debits} - \sum \text{Credits} = \$0.00$."* |
-| **"Why generate the Power BI report programmatically instead of manually building it?"** | *"Automating the `.pbip` generation via Python guarantees CI/CD reproducibility, enables version control in Git, eliminates human click-errors, and allows automated testing scripts to assert that every single visual projection maps to an existing semantic model column before opening Power BI Desktop."* |
-| **"What would you change for a production cloud deployment?"** | *"In a live commercial deployment, the local Parquet files are already structured for direct staging into ADLS Gen2 Delta tables. We would enable Direct Lake mode on Microsoft Fabric Premium capacity, replace manual execution with Azure Data Factory trigger schedules, and enforce Entra ID row-level security (RLS) policies."* |
-
----
-
 ## 🔒 Scope & Operational Boundaries
 
 1. **Portfolio & Demonstration Scope:** This repository is structured as an engineering demonstration and technical portfolio project; it is not deployed to a live commercial banking production environment.
